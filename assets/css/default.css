@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:ital,wght@0,500;0,700;0,800;1,500;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+
+    color: rgb(50, 50, 50);
+
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+html{
+    height: 100vh;
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+
+    min-height: 100%;
+    text-align: justify;
+
+    overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+/* -------------------------------------------------- BODY GRID ----------------------------------------------------- */
+.body_grid{
+    display: grid;
+    grid-template:
+        "header"
+        "main"
+        "footer";
+}
+
+header{
+    grid-area: header;
+    min-height: 15%;
+    padding: 0 20%;
+
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgb(235, 235, 235);
+}
+
+main{
+    grid-area: main;
+    padding: 0 25%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+
+}
+
+footer{
+    grid-area: footer;
+    min-height: 35%;
+
+    padding: 0 20%;
+
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+/* ----------------------------------------------------- HEADER ----------------------------------------------------- */
+header{
+    display: grid;
+    grid-template:
+        ". logo nav" 100%/
+         40%   auto 40%;
+}
+header *{
+    margin: auto;
+}
+
+header img{
+    height: 100px;
+    width: auto;
+    margin: auto auto;
+}
+
+header .logo{
+    grid-area: logo;
+}
+
+header nav{
+    grid-area: nav;
+
+    margin-right: 5%;
+
+    font-size: 0.5em;
+}
+
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header nav ul li{
+    padding: 10px;
+}
+
+/* ------------------------------------------------------ MAIN ------------------------------------------------------ */
+ul{
+    list-style: none;
+}
+
+li{
+    font-size: 2em;
+}
+
+h1{
+    font-size:3.5em;
+}
+
+h2{
+    font-size:3em;
+}
+
+h3{
+    font-size:2em;
+}
+
+p{
+    font-size:1.25em;
+}
+
+/* ----------------------------------------------------- FOOTER ----------------------------------------------------- */
+footer{
+    display: grid;
+    grid-template:
+        "social"
+        "copy";
+}
+footer *{
+    margin: 5% auto;
+}
+
+footer p{
+    grid-area: copy;
+
+    font-size: 1em;
+}
+
+footer i{
+    grid-area: social;
+    margin: 0 15px;
+    font-size: 2em;
+}
+
+/* ----------------------------------------------------- HOVER ------------------------------------------------------ */
+header img:hover{
+    transform: scale(1.2);
+}
+
+header nav ul li:hover{
+    transform: scale(1.2);
+}
+header nav ul li a:hover{
+    color: #36214D;
+}
+
+footer a i:hover{
+    transform: scale(1.2);
+    color: #36214D;
+}
+
+/* -------------------------------------------------- RESPONSIVE ---------------------------------------------------- */
+@media screen and (max-width:1000px){
+    header{
+        padding: 0 5%;
+    }
+    main{
+        padding: 0 5%;
+    }
+    footer{
+        padding: 0 5%;
+    }
+}
