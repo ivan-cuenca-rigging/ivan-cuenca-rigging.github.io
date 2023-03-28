@@ -150,13 +150,17 @@ footer *{
 footer p{
     grid-area: copy;
 
+    margin: auto auto;
+
+    white-space: nowrap;
+
     font-size: 1em;
 }
 
-footer i{
+footer .social{
     grid-area: social;
 
-    margin: 0 15px;
+    margin: auto auto;
 
     font-size: 2em;
 }
@@ -188,5 +192,11 @@ footer a i:hover{
     }
     footer{
         padding: 0 5%;
+    }
+    footer p{
+        font-size: 1em;
+    }
+    footer .social{
+        font-size: 5em;
     }
 }
