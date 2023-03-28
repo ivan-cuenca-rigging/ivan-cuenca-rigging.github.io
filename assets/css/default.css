@@ -64,7 +64,7 @@ main{
 
 footer{
     grid-area: footer;
-    min-height: 35%;
+    min-height: 20%;
 
     padding: 0 20%;
 
@@ -144,7 +144,7 @@ footer{
         "copy";
 }
 footer *{
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 footer p{
@@ -155,7 +155,9 @@ footer p{
 
 footer i{
     grid-area: social;
+
     margin: 0 15px;
+
     font-size: 2em;
 }
 
