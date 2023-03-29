@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
 
         <title> HiddenStrings </title>
-        <link rel="icon" type="image/png" href="/assets/images/logo.png">
+        <link rel="icon" type="image/png" href="/assets/images/logo_black.png">
         <meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
         <meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
 
@@ -17,26 +17,29 @@
     <body class="body_grid">
 
         <header>
-            <a class="logo" href="/">
-                <img src="/assets/images/logo.png" alt="HiddenStrings">
-            </a>
-            <nav>
-                <ul>
-                    
-                      <li>
-                          <a href="/blog"> Blog </a>
-                      </li>
-                    
-                      <li>
-                          <a href="/Projects"> Projects </a>
-                      </li>
-                    
-                      <li>
-                          <a href="/Resources"> Resources </a>
-                      </li>
-                    
-                </ul>
+            <!-- Logo -->
+            <a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
+            
+            <!-- NAV -->
+            <input type="checkbox" id="check">
+            <label for="check" class="show-menu">
+                &#8801
+            </label>
+            <nav class="menu">
+
+                
+                    <a href="/blog"> Blog </a>
+                
+                    <a href="/Projects"> Projects </a>
+                
+                    <a href="/Resources"> Resources </a>
+                
+
+                
             </nav>
+            <label for="check" class="hide-menu">
+                &#215
+            </label>
         </header>
 
 
