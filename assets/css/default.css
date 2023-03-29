@@ -13,9 +13,16 @@
     color: rgb(40, 40, 40);
 }
 
+body{
+    background-color: rgb(240, 240, 240);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* HEADER */
 header{
-    background-color: rgb(240, 240, 240);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 
     height: 125px;
@@ -79,7 +86,7 @@ header{
 }
 
 /* HEADER RESPONSIVE */
-@media(max-width: 768px){
+@media(max-width: 1000px){
     header{
         padding: 0 5%;
     }
@@ -138,7 +145,7 @@ main{
 }
 
 /* MAIN RESPONSIVE */
-@media(max-width: 768px){
+@media(max-width: 1000px){
     main{
         padding: 5% 5%;
     }
@@ -161,7 +168,7 @@ footer{
 }
 
 /* FOOTER RESPONSIVE */
-@media(max-width: 768px){
+@media(max-width: 1000px){
     footer{
         padding: 0 5%;
     }
