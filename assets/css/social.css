@@ -1,7 +1,7 @@
 .social{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 .social ul li {
@@ -12,14 +12,14 @@
 
 .social ul li a {
     position: relative;  
-    width: 80px;
-    height: 80px;
+    width: 5%;
+    height: 5%;
 
     display: block;
 
     text-align: center;
-    line-height: 80px;
-    font-size: 35px;
+    line-height: 5%;
+    font-size: 2rem;
     
     margin: auto;
     
@@ -77,4 +77,16 @@
 
 .social ul li:nth-child(4) a:before { /* Gmail */
     background: #DB4437;
+}
+
+/* RESPONSIVE */
+@media only screen 
+and (hover: none) 
+and (pointer: coarse)
+and (max-width:1080px)
+and (orientation:portrait){
+    .social ul li a {
+        height: 10%;
+        width: auto;
+    }
 }

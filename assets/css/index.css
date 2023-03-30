@@ -9,7 +9,11 @@
     border-radius: 50%
 }
 /* RESPONSIVE */
-@media only screen and (hover: none) and (pointer: coarse){
+@media only screen 
+and (hover: none) 
+and (pointer: coarse)
+and (max-width:1080px)
+and (orientation:portrait){
     .profile-img{
         width: 75%;
         height: auto;
