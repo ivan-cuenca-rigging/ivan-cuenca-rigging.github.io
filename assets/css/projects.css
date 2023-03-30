@@ -1,10 +1,51 @@
-main{
+.projects{
     display: flex;
-    justify-content: space-between;
-    
-    padding: auto auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-main img{
+.card{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.5s;
+}
+
+.card img{
+    width: 200px;
+    height: 300px;
+
     border-radius: 5px;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.75);
+
+    transition: 0.5s;
+}
+
+.card a{
+    text-align: center;
+}
+
+.watch{
+    color: rgb(240, 240, 240);
+
+    position: relative;
+    transform: translateY(-200px);
+    text-align: center;
+
+    font-weight: bold;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: 0.5s;
+    }
+
+.card:hover .watch{
+    opacity: 1;
+}
+.card img:hover{
+    filter: brightness(50%);
 }
