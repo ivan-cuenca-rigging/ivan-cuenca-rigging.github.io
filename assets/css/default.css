@@ -18,7 +18,9 @@ body{
 
     display: flex;
     flex-direction: column;
+
     min-height: 100vh;
+
     font-size: 1rem;
     line-height: 1rem;
 }
@@ -51,9 +53,7 @@ header{
 
 .menu{
     display: flex;
-    justify-content: space-between;
 }
-
 .menu a{
     padding: 0 5%;
 
@@ -121,28 +121,36 @@ footer{
     flex-wrap: wrap;
 
     z-index: 50;
+
+    opacity: 0.5;
 }
 
 /* RESPONSIVE */
-@media(max-width: 1440px){
+@media only screen and (hover: none) and (pointer: coarse){
+
     body{
-        font-size: 2rem;
-        line-height: 2rem;
+        font-size: 3rem;
+        line-height: 4.5rem;
     }
     /* HEADER */
     header{
-        height: 10vh;
-
-        padding: 0 5%;
+        padding: 0 10%;
     }
-
+    .logo{
+        height: 12.5vh;
+        width: auto;
+    }
     .show-menu{
         display: block;
+
+        font-size: 7.5rem;
     }
 
     .menu{
         background: rgb(240, 240, 240);
 
+        flex-direction: column;
+        
         position: fixed;
         right: 0;
         left:0;
@@ -153,7 +161,7 @@ footer{
         
         text-align: center;
         
-        padding: 10% 0;
+        padding-top: 10vh;
         
         z-index: 100;
 
@@ -163,7 +171,9 @@ footer{
     .menu a{
         display: block;
         
-        margin: 10% auto;
+        margin: 5vh auto;
+
+        font-size: 7rem;
     }
 
     #check:checked ~ .menu{
@@ -172,6 +182,9 @@ footer{
     
     #check:checked ~ .hide-menu{
         display: block;
+
+        font-size: 7.5rem;
+
         z-index: 150;
     }
 
