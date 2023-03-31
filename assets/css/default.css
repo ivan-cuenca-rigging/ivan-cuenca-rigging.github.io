@@ -1,36 +1,54 @@
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:ital,wght@0,500;0,700;0,800;1,500;1,700;1,800&display=swap');
 
-/* RESET */
-*{
-    box-sizing: border-box;
+/* COLORS */
+:root{
+    --primary-color: rgb(240, 240, 240);
+    --secondary-color: rgb(40, 40, 40);
+    --accent-color:rgb(100, 70, 100);
 
-    margin: 0;
-    padding: 0;
-
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    color: rgb(40, 40, 40);
+    --primary-typo: 'Open Sans', sans-serif;
+    --secondary-typo: 'Open Sans', sans-serif;
 }
 
+/* DARK THEME */
+@media (prefers-color-scheme: dark){
+    :root{
+        --primary-color: rgb(40, 40, 40);
+        --secondary-color: rgb(240, 240, 240);
+    }
+}
+
+/* HIGH CONTRAST */
+@media (prefers-contrast:high){
+    :root{
+    --primary-color: black;
+    --secondary-color: white;
+    }
+}
+
+/* SELECTION HIGHLIGHT */
+::selection{
+    background-color: var(--secondary-color);
+    color: var(--primary-color)
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+/* BODY */
 body{
-    background-color: rgb(240, 240, 240);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
 
-    display: flex;
-    flex-direction: column;
-
-    min-height: 100vh;
-
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-family: var(--primary-typo);
 }
 
 /* HEADER */
 header{
-    background: rgb(240, 240, 240);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-color);
 
-    height: 15vh;
+    height: 15%;
 
     position: fixed;
     top: 0;
@@ -66,7 +84,7 @@ header{
     padding: 0 5%;
 
     text-transform: uppercase;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     font-weight: 900;
 
     transition: 0.5s;
@@ -82,8 +100,8 @@ header{
     
     cursor: pointer;
     
-    font-size: 5rem;
-    color: rgb(40, 40, 40);
+    font-size: 5em;
+    color: var(--secondary-color);
 
     transition: 0.5s;
 }
@@ -92,7 +110,7 @@ header{
 .menu a:hover,
 .show-menu:hover,
 .hide-menu:hover{
-    color: rgb(100, 70, 100);
+    color: var(--accent-color);
     transform: scale(1.25);
 }
 
@@ -103,13 +121,11 @@ header{
 
 /* MAIN */
 main{
-    min-height: 75vh;
+    min-height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    background-color: rgb(240, 240, 240);
-    
     margin-top: 15vh;
     margin-bottom: 5vh;
 
@@ -120,7 +136,8 @@ main{
 
 /* FOOTER */
 footer{
-    background-color: rgb(240, 240, 240);
+    background-color: var(--primary-color);
+
     box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.5);
 
     position: fixed;
@@ -128,9 +145,10 @@ footer{
     left: 0;
     right: 0;
 
-    height: 5vh;
+    height: 5%;
 
-    font-size: 1rem;
+    font-size: 1em;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,9 +163,9 @@ and (hover: none)
 and (pointer: coarse)
 and (max-width:1080px)
 and (orientation:portrait){
+    /* BODY */
     body{
-        font-size: 3rem;
-        line-height: 4.5rem;
+        font-size: 3em;
     }
 
     /* HEADER */
@@ -157,12 +175,15 @@ and (orientation:portrait){
 
     .show-menu{
         display: block;
+    }
 
-        font-size: 7.5rem;
+    .show-menu,
+    .hide-menu{
+        font-size: 3em;
     }
 
     .menu{
-        background: rgb(240, 240, 240);
+        background: var(--primary-color);
 
         flex-direction: column;
         
@@ -186,9 +207,9 @@ and (orientation:portrait){
     .menu a{
         display: block;
         
-        margin: 5vh auto;
+        margin: 10% auto;
 
-        font-size: 7rem;
+        font-size: 2em;
     }
 
     #check:checked ~ .menu{
@@ -198,7 +219,7 @@ and (orientation:portrait){
     #check:checked ~ .hide-menu{
         display: block;
 
-        font-size: 7.5rem;
+        font-size: 3em;
 
         z-index: 150;
     }
@@ -210,7 +231,7 @@ and (orientation:portrait){
 
     /* FOOTER */
     footer{
-        font-size: 2.5rem;
+        font-size: 0.75em;
 
         padding: 0 5%;
     }
