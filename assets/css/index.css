@@ -6,8 +6,9 @@
     margin: auto;
     margin-bottom:5%;
 
-    width: 40%;
+    width: 30%;
     height: auto;
+
     border-radius: 50%
 }
 
@@ -19,6 +20,5 @@ and (max-width:1080px)
 and (orientation:portrait){
     .profile-img{
         width: 75%;
-        height: auto;
     }
 }

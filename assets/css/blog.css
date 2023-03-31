@@ -1,0 +1,17 @@
+/* COLORS */
+:root{
+    --primary-color: rgb(240, 240, 240);
+    --secondary-color: rgb(40, 40, 40);
+    --accent-color:rgb(100, 70, 100);
+
+    --primary-typo: 'Open Sans', sans-serif;
+    --secondary-typo: 'Open Sans', sans-serif;
+}
+
+/* ---------------------------------------------------------------------------------- */
+.blog_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

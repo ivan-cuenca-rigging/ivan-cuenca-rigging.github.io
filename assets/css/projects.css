@@ -1,9 +1,19 @@
+/* COLORS */
+:root{
+    --primary-color: rgb(240, 240, 240);
+    --secondary-color: rgb(40, 40, 40);
+    --accent-color:rgb(100, 70, 100);
+
+    --primary-typo: 'Open Sans', sans-serif;
+    --secondary-typo: 'Open Sans', sans-serif;
+}
+
+/* ---------------------------------------------------------------------------------- */
 .projects{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
 }
 
 .card{
@@ -32,10 +42,10 @@
 }
 
 .watch{
-    color: rgb(240, 240, 240);
+    color: var(--primary-color);
 
     position: relative;
-    transform: translateY(-100%);
+    transform: translateY(-375%);
     text-align: center;
 
     font-weight: bold;
@@ -61,8 +71,5 @@ and (max-width:1080px)
 and (orientation:portrait){
     .card{
         flex-basis: 100%;
-    }
-    .card img{
-        width: 70%;
     }
 }
