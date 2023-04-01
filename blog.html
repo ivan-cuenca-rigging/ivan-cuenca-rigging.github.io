@@ -2,72 +2,101 @@
 
 <html>
     <head>
+       
         <meta charset="UTF-8">
 
-        <title> HiddenStrings </title>
-        <link rel="icon" type="image/png" href="/assets/images/logo.png">
-        <meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
-        <meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+<title> HiddenStrings </title>
 
-        <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+<link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+<meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
+
+<meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+
+       
+        <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
     </head>
 
-    <body class="body_grid">
+    <body>
 
         <header>
-            <!-- Logo -->
-            <a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
-            
-            <!-- NAV -->
-            <input type="checkbox" id="check">
-            <label for="check" class="show-menu">
-                &#8801
-            </label>
-            <nav class="menu">
-                
-                    <a href="/blog"> Blog </a>
-                
-                    <a href="/projects"> Projects </a>
-                
-                    <a href="/Resources"> Resources </a>
-                
-            </nav>
-            <label for="check" class="hide-menu">
-                &#215
-            </label>
+
+            <script src="/assets/js/scroll_listener.js"></script>
+
+<!-- Logo -->
+<a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
+
+<!-- NAV -->
+<input type="checkbox" id="check">
+<label for="check" class="show-menu">
+    &#8801
+</label>
+<nav class="menu">
+    
+        <a href="/blog"> Blog </a>
+    
+        <a href="/projects"> Projects </a>
+    
+        <a href="/Resources"> Resources </a>
+    
+</nav>
+<label for="check" class="hide-menu">
+    &#215
+</label>
+
+
+
+<script>
+    window.onscroll = function(){
+        if (document.documentElement.scrollTop>50){
+            document.getElementsByTagName("header")[0].style.height = "7.5%";
+            document.getElementsByClassName("logo")[0].style.height = "5vh";
+        }
+        else{
+            document.getElementsByTagName("header")[0].style.height = "15%";
+            document.getElementsByClassName("logo")[0].style.height = "12.5vh";
+        }
+    }
+</script>
+
         </header>
 
-
         <main>
-        <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 
-<div class="blog_flex">
+            <div class="blog_flex">
+                
+                    <div class="post">
+                        <h2><a href="/2023/03/28/kiwi.html">kiwi post</a></h2>
+                        <h2 id="una-fruta-exótica-y-llena-de-nutrientes">Una fruta exótica y llena de nutrientes</h2>
 
-    <div class="post">
-      <h2><a href="/2023/03/28/kiwi.html">kiwi post</a></h2>
-      <h2 id="una-fruta-exótica-y-llena-de-nutrientes">Una fruta exótica y llena de nutrientes</h2>
+                    </div>
+                
+                    <div class="post">
+                        <h2><a href="/2023/03/28/bananas.html">banana post</a></h2>
+                        <h1 id="una-fruta-versátil-y-nutritiva">Una fruta versátil y nutritiva</h1>
 
-    </div>
+                    </div>
+                
+                    <div class="post">
+                        <h2><a href="/2023/03/28/apples.html">apple post</a></h2>
+                        <h1 id="una-fruta-deliciosa-y-saludable">Una fruta deliciosa y saludable</h1>
 
-    <div class="post">
-      <h2><a href="/2023/03/28/bananas.html">banana post</a></h2>
-      <h1 id="una-fruta-versátil-y-nutritiva">Una fruta versátil y nutritiva</h1>
+                    </div>
+                
+            </div>
 
-    </div>
+            
 
-    <div class="post">
-      <h2><a href="/2023/03/28/apples.html">apple post</a></h2>
-      <h1 id="una-fruta-deliciosa-y-saludable">Una fruta deliciosa y saludable</h1>
 
-    </div>
-
-</div>
         </main>
 
-
         <footer>
+
             <p>All rights reserved &copy; 2023 Iván Cuenca Ruiz</p>
+
         </footer>
 
     </body>

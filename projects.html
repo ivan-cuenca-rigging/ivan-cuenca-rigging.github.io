@@ -2,103 +2,131 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="/assets/css/projects.css">
+        
         <meta charset="UTF-8">
 
-        <title> HiddenStrings </title>
-        <link rel="icon" type="image/png" href="/assets/images/logo.png">
-        <meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
-        <meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+<title> HiddenStrings </title>
 
-        <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+<link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+<meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
+
+<meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+
+
     </head>
 
-    <body class="body_grid">
+    <body>
 
         <header>
-            <!-- Logo -->
-            <a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
-            
-            <!-- NAV -->
-            <input type="checkbox" id="check">
-            <label for="check" class="show-menu">
-                &#8801
-            </label>
-            <nav class="menu">
-                
-                    <a href="/blog"> Blog </a>
-                
-                    <a href="/projects"> Projects </a>
-                
-                    <a href="/Resources"> Resources </a>
-                
-            </nav>
-            <label for="check" class="hide-menu">
-                &#215
-            </label>
+        
+            <script src="/assets/js/scroll_listener.js"></script>
+
+<!-- Logo -->
+<a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
+
+<!-- NAV -->
+<input type="checkbox" id="check">
+<label for="check" class="show-menu">
+    &#8801
+</label>
+<nav class="menu">
+    
+        <a href="/blog"> Blog </a>
+    
+        <a href="/projects"> Projects </a>
+    
+        <a href="/Resources"> Resources </a>
+    
+</nav>
+<label for="check" class="hide-menu">
+    &#215
+</label>
+
+
+
+<script>
+    window.onscroll = function(){
+        if (document.documentElement.scrollTop>50){
+            document.getElementsByTagName("header")[0].style.height = "7.5%";
+            document.getElementsByClassName("logo")[0].style.height = "5vh";
+        }
+        else{
+            document.getElementsByTagName("header")[0].style.height = "15%";
+            document.getElementsByClassName("logo")[0].style.height = "12.5vh";
+        }
+    }
+</script>
+        
         </header>
 
-
         <main>
-        <link rel="stylesheet" type="text/css" href="/assets/css/projects.css">
-
-<div class="projects">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="card">
+            <div class="projects">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <div class="card">
+                            
+                            <a href="https://youtu.be/xSG5UX0EQVg" target="_blank">
+                                <img src="/assets/images/projects/01-Luck (2022)-xSG5UX0EQVg.png">
+                            </a>
+                            <a class="project-name">Luck (2022)</a>
+                            <a class="watch"> Watch <br> trailer!</a>
+                        </div>
+                    
+                
+                    
+                        <div class="card">
+                            
+                            <a href="https://youtu.be/sTz__zyOhds" target="_blank">
+                                <img src="/assets/images/projects/02-Blush (2021)-sTz__zyOhds.png">
+                            </a>
+                            <a class="project-name">Blush (2021)</a>
+                            <a class="watch"> Watch <br> trailer!</a>
+                        </div>
+                    
+                
+                    
+                        <div class="card">
+                            
+                            <a href="https://youtu.be/VML6rQWssSk" target="_blank">
+                                <img src="/assets/images/projects/03-Wonderpark (2019)-VML6rQWssSk.png">
+                            </a>
+                            <a class="project-name">Wonderpark (2019)</a>
+                            <a class="watch"> Watch <br> trailer!</a>
+                        </div>
+                    
+                
+            </div>
             
-            <a href="https://youtu.be/xSG5UX0EQVg" target="_blank">
-                <img src="/assets/images/projects/01-Luck (2022)-xSG5UX0EQVg.png">
-            </a>
-            <a class="project-name">Luck (2022)</a>
-            <a class="watch"> Watch <br> trailer!</a>
-        </div>
-    
-
-    
-        <div class="card">
             
-            <a href="https://youtu.be/sTz__zyOhds" target="_blank">
-                <img src="/assets/images/projects/02-Blush (2021)-sTz__zyOhds.png">
-            </a>
-            <a class="project-name">Blush (2021)</a>
-            <a class="watch"> Watch <br> trailer!</a>
-        </div>
-    
 
-    
-        <div class="card">
-            
-            <a href="https://youtu.be/VML6rQWssSk" target="_blank">
-                <img src="/assets/images/projects/03-Wonderpark (2019)-VML6rQWssSk.png">
-            </a>
-            <a class="project-name">Wonderpark (2019)</a>
-            <a class="watch"> Watch <br> trailer!</a>
-        </div>
-    
-
-</div>
+        
         </main>
 
-
         <footer>
+        
             <p>All rights reserved &copy; 2023 Iván Cuenca Ruiz</p>
+        
         </footer>
 
     </body>

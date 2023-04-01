@@ -2,45 +2,70 @@
 
 <html>
     <head>
+    
         <meta charset="UTF-8">
 
-        <title> HiddenStrings </title>
-        <link rel="icon" type="image/png" href="/assets/images/logo.png">
-        <meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
-        <meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+<title> HiddenStrings </title>
 
-        <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+<link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+<meta name="description" content="Portfolio of Iván Cuenca Ruiz, specializing in rigging and Python programming.">
+
+<meta name="keywords" content="rigging, Python programming, 3D animation, portfolio, artist, modeling">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+
+    
     </head>
 
-    <body class="body_grid">
+    <body>
 
         <header>
-            <!-- Logo -->
-            <a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
-            
-            <!-- NAV -->
-            <input type="checkbox" id="check">
-            <label for="check" class="show-menu">
-                &#8801
-            </label>
-            <nav class="menu">
-                
-                    <a href="/blog"> Blog </a>
-                
-                    <a href="/projects"> Projects </a>
-                
-                    <a href="/Resources"> Resources </a>
-                
-            </nav>
-            <label for="check" class="hide-menu">
-                &#215
-            </label>
+        
+            <script src="/assets/js/scroll_listener.js"></script>
+
+<!-- Logo -->
+<a href="/"><img class="logo" src="/assets/images/logo.png" alt="HiddenStrings"></a>
+
+<!-- NAV -->
+<input type="checkbox" id="check">
+<label for="check" class="show-menu">
+    &#8801
+</label>
+<nav class="menu">
+    
+        <a href="/blog"> Blog </a>
+    
+        <a href="/projects"> Projects </a>
+    
+        <a href="/Resources"> Resources </a>
+    
+</nav>
+<label for="check" class="hide-menu">
+    &#215
+</label>
+
+
+
+<script>
+    window.onscroll = function(){
+        if (document.documentElement.scrollTop>50){
+            document.getElementsByTagName("header")[0].style.height = "7.5%";
+            document.getElementsByClassName("logo")[0].style.height = "5vh";
+        }
+        else{
+            document.getElementsByTagName("header")[0].style.height = "15%";
+            document.getElementsByClassName("logo")[0].style.height = "12.5vh";
+        }
+    }
+</script>
+        
         </header>
 
-
         <main>
-        <h2 id="una-fruta-exótica-y-llena-de-nutrientes">Una fruta exótica y llena de nutrientes</h2>
+        
+            <h2 id="una-fruta-exótica-y-llena-de-nutrientes">Una fruta exótica y llena de nutrientes</h2>
 
 <p>Los kiwis son una fruta exótica y deliciosa que son una excelente fuente de nutrientes. Son ricos en vitamina C, vitamina K y fibra, lo que los convierte en una opción saludable para cualquier persona que busque una fruta con beneficios para la salud.</p>
 
@@ -48,11 +73,13 @@
 
 <p>Los kiwis se pueden comer crudos o agregar a ensaladas de frutas, smoothies o como ingrediente en recetas de postres. ¡Incorporar kiwis en tu dieta es una forma fácil y deliciosa de obtener nutrientes clave para la salud!</p>
 
+        
         </main>
 
-
         <footer>
+        
             <p>All rights reserved &copy; 2023 Iván Cuenca Ruiz</p>
+        
         </footer>
 
     </body>
