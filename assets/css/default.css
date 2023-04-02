@@ -15,7 +15,7 @@
     --secondary-typo: 'Open Sans', sans-serif;
 
     --max-width: 1400px;
-    --min-width: 500px;
+    --min-width: 200px;
 }
 
 /* HIGH CONTRAST */
@@ -120,7 +120,7 @@ header .color-theme-container{
     height: 1rem;
     width: 2rem;
 
-    margin-left: 2rem;
+    margin: 0 2rem;
     cursor: pointer;
 
     background-color: rgb(var(--secondary-color));
@@ -189,7 +189,7 @@ footer .container{
 }
 
 /* RESPONSIVE */
-@media screen and (max-width:655px){
+@media screen and (max-width:768px){
     /* HEADER */
     header .button{
         display: block;

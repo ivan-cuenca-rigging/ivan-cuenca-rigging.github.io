@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     flex-flow: row nowrap;
-    white-space: nowrap; /* Evita que los elementos se envuelvan */
+    white-space: nowrap; 
 
     width: 100%;
 }
@@ -12,7 +12,7 @@
 
     display: inline-block;
 
-    margin: 1rem;
+    margin: 0.25rem;
 }
 
 .social ul li a{
