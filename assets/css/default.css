@@ -217,9 +217,9 @@ footer .container{
 
 /* RESPONSIVE */
 @media only screen and (max-width:768px),
-       only screen and (-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 3),
-       only screen and (min--moz-device-pixel-ratio: 2) and (max--moz-device-pixel-ratio: 3),
-       only screen and (min-device-pixel-ratio: 2) and (max-device-pixel-ratio: 3) {
+       only screen and (-webkit-min-device-pixel-ratio: 2) and (-webkit-max-device-pixel-ratio: 3) and (max-width:768px),
+       only screen and (min--moz-device-pixel-ratio: 2) and (max--moz-device-pixel-ratio: 3) and (max-width:768px),
+       only screen and (min-device-pixel-ratio: 2) and (max-device-pixel-ratio: 3) and (max-width:768px) {
     /* HEADER */
     header .button{
         display: block;
