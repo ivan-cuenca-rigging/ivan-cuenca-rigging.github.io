@@ -51,7 +51,7 @@ body{
 /* HEADER */
 header{
     width: 100%;
-    
+
     box-shadow: 0px 2px 2px rgba(var(--secondary-color), 0.5);
 }
 
@@ -62,7 +62,6 @@ header .container{
 
     max-width: var(--max-width);
     min-width: var(--min-width);
-
     
     padding: 1rem;
 
@@ -82,6 +81,13 @@ header .logo{
 
 header .button{
     display: none;
+}
+
+header .svg{
+    height: 2rem;
+    width: 2rem;
+
+    fill: rgb(var(--secondary-color));
 }
 
 header .nav{
@@ -113,7 +119,8 @@ header .a{
 header .color-theme-container{
     height: 1rem;
     width: 2rem;
-    
+
+    margin-left: 2rem;
     cursor: pointer;
 
     background-color: rgb(var(--secondary-color));
