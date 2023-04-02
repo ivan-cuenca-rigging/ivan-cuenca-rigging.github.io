@@ -31,23 +31,23 @@
     border-radius: 50%;
     border: 3px solid rgb(var(--secondary-color));
 
-    z-index: 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
+    z-index: 1;
 }
 
 .social ul li a .icon{
-    transition: 0.5s;
-
     z-index: 3;
 }
 
 .social ul li a:hover .icon{
     color: rgb(var(--white-color));
+    
     transform: rotateY(360deg);
+
+    transition: 0.5s;
 }
 
 .social ul li a:before{

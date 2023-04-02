@@ -33,7 +33,6 @@
 }
 
 /* --------------------------------------------------------------------------------------------------- */
-
 /* BODY */
 body{
     color: rgb(var(--secondary-color));
@@ -80,18 +79,12 @@ header .logo{
     max-height: 100px;
     max-width: 100%;
 
-    color: var(--primary-color);
+    fill: rgb(var(--secondary-color));
+
 }
 
 header .button{
     display: none;
-}
-
-header .svg{
-    height: 2rem;
-    width: 2rem;
-
-    fill: var(--primary-color);
 }
 
 header .nav{
@@ -120,7 +113,7 @@ header .a{
     letter-spacing: 0.1em;
 }
 
-header .dark-container{
+header .color-theme-container{
     height: 1rem;
     width: 2rem;
     
@@ -135,7 +128,7 @@ header .dark-container{
 
 }
 
-header .dark-button{
+header .color-theme-button{
     width: 0.8rem;
     height: 0.8rem;
 
@@ -145,7 +138,7 @@ header .dark-button{
     border-radius: 50%;
 }
 
-header .dark-container.active{
+header .color-theme-container.active{
     justify-content: flex-end;
 }
 
@@ -178,6 +171,7 @@ footer{
     display: flex;
     justify-content: center;
 }
+
 footer .container{
     background-color: rgb(var(--primary-color));
 
