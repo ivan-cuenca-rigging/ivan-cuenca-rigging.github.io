@@ -13,17 +13,9 @@
 
     --primary-typo: 'Open Sans', sans-serif;
     --secondary-typo: 'Open Sans', sans-serif;
-}
 
-/* DARK THEME */
-@media (prefers-color-scheme: dark){
-    :root{
-        --primary-color: 40, 40, 40;
-        --secondary-color: 240, 240, 240;
-    }
-    .logo{
-        filter: invert();
-    }
+    --max-width: 1400px;
+    --min-width: 500px;
 }
 
 /* HIGH CONTRAST */
@@ -51,98 +43,112 @@ body{
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     min-height: 100vh;
 }
 
 /* HEADER */
 header{
+    width: 100%;
     box-shadow: 0px 2px 2px rgba(var(--secondary-color), 0.5);
-    background-color: rgb(var(--primary-color));
-
-    height: 15%;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    padding: 0 20%;
 
     display: flex;
+    justify-content: center;
+}
+
+header .container{
+    background-color: var(--primary-color);
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+
+    
+    padding: 1rem;
+
+    display: flex;
+    flex-flow:  row wrap;
     justify-content: space-between;
     align-items: center;
-
-    transition: 0.5s;
-
-    z-index: 50;
 }
 
-.logo{
-    height: 12.5vh;
-    width: auto;
+header .logo{
+    height: 100%;
+    max-height: 100px;
+    max-width: 100%;
 
-    opacity: 0.8;
-
-    transition: 0.5s;
+    color: var(--primary-color);
 }
 
-.menu{
+header .button{
+    display: none;
+}
+
+header .svg{
+    height: 2rem;
+    width: 2rem;
+
+    fill: var(--primary-color);
+}
+
+header .nav{
     display: flex;
-    justify-content: right;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.menu a{
-    padding: 0 5%;
+header .ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
 
-    position: relative;
-    
+header .li{
+    margin: 0 0.5rem;
+}
+
+header .a{
     text-transform: uppercase;
     
     font-size: 1.25em;
     font-weight: 900;
     letter-spacing: 0.1em;
-
-    transition: 0.5s;
-}
-.menu a::after {
-    content: "";
-    
-    background-color: rgb(var(--secondary-color));
-
-    position: absolute;
-    
-    bottom: -0.5rem;
-    left: 50%;
-    
-    width: 0%;
-    height: 0.15rem;
-    
-    transition: 0.5s;
-  }
-  
-.menu a:hover::after {
-    width: 100%;
-    left: 0;
 }
 
-#check{
-    display: none;
-}
-
-.show-menu,
-.hide-menu{
-    display: none;
+header .dark-container{
+    height: 1rem;
+    width: 2rem;
     
     cursor: pointer;
-    
-    font-size: 5em;
-    color: rgb(var(--secondary-color));
 
-    transition: 0.5s;
+    background-color: rgb(var(--secondary-color));
+    border-radius: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
 }
 
-.logo:hover{
-    transform: scale(1.1);
+header .dark-button{
+    width: 0.8rem;
+    height: 0.8rem;
+
+    margin: auto 0.2rem;
+    
+    background-color: rgb(var(--primary-color));
+    border-radius: 50%;
+}
+
+header .dark-container.active{
+    justify-content: flex-end;
 }
 
 /* MAIN */
@@ -153,29 +159,36 @@ main{
     
     flex-grow: 1;
 
-    min-height: 75%;
+    min-height: 100%;
+    
+    
     width: 100%;
     
-    margin-top: 15vh;
-    margin-bottom: 5vh;
+    max-width: calc(var(--max-width) - 20%);
+    min-width: var(--min-width);
 
-    padding: 1% 25%;
+    margin: 0 auto;
 
-    transition: 0.5s;
+    padding: 1%;
 }
 
 /* FOOTER */
 footer{
-    background-color: rgb(var(--primary-color));
+    width: 100%;
 
     box-shadow: 0px -2px 2px rgba(var(--secondary-color), 0.5);
 
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    display: flex;
+    justify-content: center;
+}
+footer .container{
+    background-color: rgb(var(--primary-color));
 
-    height: 5%;
+    width: 100%;
+    max-width: var(--max-width);
+    min-width: var(--max-width);
+    
+    margin: 0 auto;
 
     font-size: 1em;
 
@@ -188,82 +201,39 @@ footer{
 }
 
 /* RESPONSIVE */
-@media only screen 
-and (hover: none) 
-and (pointer: coarse)
-and (max-width:1080px)
-and (orientation:portrait){
-    /* BODY */
-    body{
-        font-size: 3em;
-    }
-
+@media screen and (max-width:655px){
     /* HEADER */
-    header{
-        padding: 0 10%;
-    }
-
-    .show-menu{
+    header .button{
         display: block;
+        cursor: pointer;
     }
 
-    .show-menu,
-    .hide-menu{
-        font-size: 3em;
-    }
-
-    .menu{
-        background: rgba(var(--primary-color), 0.85);
-        backdrop-filter: blur(0.5rem);
-
-        flex-direction: column;
-        
-        position: fixed;
-        right: 0;
-        left:0;
-        top: -100vh;
-
+    header .nav{
         width: 100%;
-        height: 100vh;
-        
-        text-align: center;
-        
-        padding-top: 10vh;
-        
-        z-index: 100;
+
+        height: 0;
+
+        overflow: hidden;
+
+        pointer-events: none;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
 
         transition: 0.5s;
     }
 
-    .menu a{
-        display: block;
-        
-        margin: 10% auto;
-
-        font-size: 2em;
+    header .nav.active{
+        height: 50vh;
+        pointer-events: auto;
     }
 
-    #check:checked ~ .menu{
-        top: 0;
+    header .ul{
+        flex-direction: column;
     }
-    
-    #check:checked ~ .hide-menu{
-        display: block;
-
-        font-size: 3em;
-
-        z-index: 150;
-    }
-
-    /* MAIN */
-    main{
-        padding: 5% 5%;
-    }
-
-    /* FOOTER */
-    footer{
-        font-size: 0.75em;
-
-        padding: 0 5%;
+    header .li{
+        margin: 1rem 0;
     }
 }

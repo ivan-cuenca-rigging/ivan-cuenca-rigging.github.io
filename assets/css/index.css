@@ -3,22 +3,10 @@
     align-items: center; 
     justify-content: center;
 
-    margin: auto;
-    margin-bottom:5%;
+    margin: 1% auto;
 
     width: 30%;
     height: auto;
 
     border-radius: 50%;
-}
-
-/* RESPONSIVE */
-@media only screen 
-and (hover: none) 
-and (pointer: coarse)
-and (max-width:1080px)
-and (orientation:portrait){
-    .profile-img{
-        width: 75%;
-    }
 }

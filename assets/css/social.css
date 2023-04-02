@@ -1,12 +1,13 @@
-/* ---------------------------------------------------------------------------------- */
 .social{
     display: flex;
     justify-content: center;
+    flex-flow: row nowrap;
+    white-space: nowrap; /* Evita que los elementos se envuelvan */
 
     width: 100%;
 }
 
-.social ul li {
+.social ul li{
     list-style: none;
 
     display: inline-block;
@@ -14,7 +15,7 @@
     margin: 1rem;
 }
 
-.social ul li a {
+.social ul li a{
     position: relative;  
 
     display: block;
@@ -35,23 +36,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-.social ul li a .icon {
-    color: rgb(var(--secondary-color));
-    
+.social ul li a .icon{
     transition: 0.5s;
 
     z-index: 3;
 }
 
-.social ul li a:hover .icon {
-    color: var(--white-color);
-
+.social ul li a:hover .icon{
     transform: rotateY(360deg);
 }
 
-.social ul li a:before {
+.social ul li a:before{
     content: "";
   
     position: absolute;
@@ -66,7 +64,7 @@
     z-index: 2;
 }
 
-.social ul li a:hover:before {
+.social ul li a:hover:before{
    top: 0;
 }
 
@@ -78,26 +76,10 @@
     background: #171515;
 }
 
-.social ul li:nth-child(3) a:before { /* Instagram */
+.social ul li:nth-child(3) a:before{ /* Instagram */
    background: #E1306C;
 }
 
-.social ul li:nth-child(4) a:before { /* Gmail */
+.social ul li:nth-child(4) a:before{ /* Gmail */
     background: #DB4437;
-}
-
-/* RESPONSIVE */
-@media only screen 
-and (hover: none) 
-and (pointer: coarse)
-and (max-width:1080px)
-and (orientation:portrait){
-    .social ul li a {
-        width: 7rem;
-        height: 7rem;
-        font-size: 1.5em;
-
-        border: 7px solid rgb(var(--secondary-color));
-
-    }
 }
