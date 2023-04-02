@@ -135,6 +135,19 @@ header .a{
     transition: 0.5s;
 }
 
+.nav .a.active::before{
+    content: "";
+    display: block;
+    height: 0.15em;
+    background-color: rgb(var(--secondary-color));
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform: scale(1, 1);
+    transition: 0.5s;
+}
+
 .nav .a:hover::before{
     transform: scale(1, 1);
 }
