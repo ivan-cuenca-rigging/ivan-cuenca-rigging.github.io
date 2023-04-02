@@ -189,7 +189,7 @@ footer .container{
 }
 
 /* RESPONSIVE */
-@media screen and (max-width:768px){
+@media screen and (max-width:37rem){
     /* HEADER */
     header .button{
         display: block;
