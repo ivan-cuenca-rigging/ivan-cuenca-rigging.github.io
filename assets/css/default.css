@@ -28,8 +28,8 @@
 
 /* SELECTION HIGHLIGHT */
 ::selection{
-    background-color: var(--secondary-color);
-    color: var(--primary-color)
+    background-color: rgb(var(--secondary-color));
+    color: rgb(var(--primary-color));
 }
 
 /* --------------------------------------------------------------------------------------------------- */
@@ -155,7 +155,6 @@ header .dark-container.active{
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     
     flex-grow: 1;
 
