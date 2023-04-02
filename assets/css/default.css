@@ -61,8 +61,6 @@ header{
 header .container{
     background-color: var(--primary-color);
 
-    width: 100%;
-
     margin: 0 auto;
 
     max-width: var(--max-width);
@@ -183,10 +181,6 @@ footer{
 footer .container{
     background-color: rgb(var(--primary-color));
 
-    width: 100%;
-    max-width: var(--max-width);
-    min-width: var(--max-width);
-    
     margin: 0 auto;
 
     font-size: 1em;
