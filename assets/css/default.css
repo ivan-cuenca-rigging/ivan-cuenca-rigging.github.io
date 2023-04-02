@@ -217,7 +217,9 @@ footer .container{
 }
 
 /* RESPONSIVE */
-@media screen and (max-width:768px){
+@media screen 
+and (max-width:768px),
+(-webkit-min-device-pixel-ratio: 2){
     /* HEADER */
     header .button{
         display: block;
