@@ -40,14 +40,14 @@
 
 .social ul li a .icon{
     z-index: 3;
+
+    transition: 0.5s;
 }
 
 .social ul li a:hover .icon{
     color: rgb(var(--white-color));
     
     transform: rotateY(360deg);
-
-    transition: 0.5s;
 }
 
 .social ul li a:before{

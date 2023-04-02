@@ -77,6 +77,8 @@ header .logo{
     max-width: 100%;
 
     fill: rgb(var(--secondary-color));
+
+    transition: 0.5s;
 }
 
 header .button{
@@ -114,6 +116,28 @@ header .a{
     font-size: 1.25em;
     font-weight: 900;
     letter-spacing: 0.1em;
+
+    transition: 0.5s;
+}
+
+.nav .a{
+    position: relative;
+}
+.nav .a::before{
+    content: "";
+    display: block;
+    height: 0.15em;
+    background-color: rgb(var(--secondary-color));
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform: scale(0, 1);
+    transition: 0.5s;
+}
+
+.nav .a:hover::before{
+    transform: scale(1, 1);
 }
 
 header .color-theme-container{
@@ -144,6 +168,10 @@ header .color-theme-button{
 
 header .color-theme-container.active{
     justify-content: flex-end;
+}
+
+header .logo:hover{
+    transform: scale(1.1);
 }
 
 /* MAIN */
