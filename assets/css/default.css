@@ -75,7 +75,8 @@ header .logo{
     height: 5rem;
     width: 5rem;
 
-    fill: rgb(var(--secondary-color));
+    fill: rgb(var(--secondary-color)) !important;
+    color: rgb(var(--secondary-color)) !important;
 
     transition: 0.5s;
 }
@@ -234,22 +235,44 @@ footer{
     width: 100%;
 
     box-shadow: 0px -2px 2px rgba(var(--secondary-color), 0.5);
+
 }
+
 
 footer .container{
     background-color: rgb(var(--primary-color));
-
+    
     margin: 0 auto;
-    padding: 1rem 0;
-
-    font-size: 0.75em;
-
+    padding: 0.5rem 0;
+    
     display: flex;
-    justify-content: center;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 
     z-index: 25;
+}
+
+footer .social{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .social a{
+    margin: 0 0.5rem;
+
+    transition: 0.5s;
+}
+
+footer .social a:hover{
+    transform: scale(1.25);
+}
+
+footer p{
+    font-size: 0.75em;
 }
 
 /* RESPONSIVE */

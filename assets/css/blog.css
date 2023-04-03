@@ -1,7 +1,12 @@
 .blog{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
+.post{
+    background-color: rgb(210, 235, 226);
+    
+    border-radius: 2.5%;
+    overflow: hidden;
+    margin: 1rem auto;
+}

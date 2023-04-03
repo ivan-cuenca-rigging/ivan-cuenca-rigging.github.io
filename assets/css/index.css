@@ -1,3 +1,11 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
 .profile-img{
     display: flex;
     align-items: center; 
@@ -5,8 +13,39 @@
 
     margin: 1% auto;
 
-    width: 30%;
+    width: 7.5rem;
     height: auto;
 
     border-radius: 50%;
+}
+
+a{
+    text-align: center;
+}
+
+.author{
+    position: relative;
+    
+    margin-bottom: 2rem;
+
+    font-size: 1.25em;
+    font-weight: bolder;
+}
+
+.author::after {
+    content: "";
+    
+    display: block;
+    
+    position: absolute;
+    
+    left: 50%;
+    bottom: -1rem;
+
+    width: 0.4rem;
+    height: 0.4rem;
+
+    border-radius: 100%;
+
+    background-color: rgb(var(--secondary-color));
 }
