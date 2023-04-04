@@ -30,6 +30,8 @@
 
 .card a{
     text-align: center;
+
+    color: rgb(var(--secondary-color));
 }
 
 .project-name{

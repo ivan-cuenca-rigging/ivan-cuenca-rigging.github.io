@@ -9,7 +9,8 @@
 
 .post{
     width: 100%;
-    max-width: 15rem;
+    max-width: 17.5rem;
+    height: 30rem;
 
     margin: 0.5rem;
 
@@ -34,7 +35,7 @@
 
 .post-thumbnail{
     width: 100%;
-    max-width: 15rem;
+    max-height: 15rem;
 }
 
 .post-excerpt{
@@ -51,5 +52,8 @@
         flex-direction: row;
         max-height: 15rem;
         max-width: 100%;
+    }
+    .post-thumbnail{
+        max-width: 17.5rem;
     }
 }

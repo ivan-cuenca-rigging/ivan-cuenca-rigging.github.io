@@ -12,9 +12,14 @@
 
 /* MEDIA */
 img, picture, video, iframe, figure{
-    max-width: 100%;
-    width: 100%;
     display: block;
+    
+    max-width: 100%;
+
+    margin: auto;
+    
+    border-radius: 1vw;
+
     object-fit: cover;
     object-position: center center;
 }
@@ -28,21 +33,21 @@ p a{
     display: inline;
 }
 
-/* LISTS */
-li{
-    list-style-type: none;
-}
-
 /* SMOOTH ANCHOR */
 html{
     scroll-behavior: smooth;
+}
+
+/* LISTS */
+li{
+    list-style-type: disc;
 }
 
 /* text style */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em{
     font-size: 1em;
 
-    text-decoration: none;
+    line-height: 2em;
 
     color: rgb(var(--secondary-color));
 }
