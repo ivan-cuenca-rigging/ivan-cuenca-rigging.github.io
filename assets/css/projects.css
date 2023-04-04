@@ -40,7 +40,7 @@
 }
 
 .watch{
-    color: rgb(var(--white-color));
+    color: rgb(var(--white-color)) !important;
     
     position: absolute;
     top: 50%;
