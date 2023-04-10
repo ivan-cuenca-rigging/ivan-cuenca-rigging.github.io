@@ -41,6 +41,9 @@
     border-radius: 0;
 }
 
+.post-title{
+    font-weight: bold;
+}
 .post-excerpt{
     width: 100%;
 

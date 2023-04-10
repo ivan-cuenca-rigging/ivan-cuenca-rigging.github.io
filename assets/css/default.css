@@ -252,7 +252,6 @@ main{
 }
 main a{
     text-decoration: none;
-    color: rgb(var(--accent-color));
 }
 
 main .title{
@@ -283,6 +282,12 @@ main .download-button:hover{
     transform: scale(1.1);
 
     box-shadow: 0 0.5rem 1rem rgba(var(--secondary-color), 0.2);
+}
+
+main .date{
+    margin: 2rem 0;
+    
+    text-align: right;
 }
 
 /* FOOTER */
