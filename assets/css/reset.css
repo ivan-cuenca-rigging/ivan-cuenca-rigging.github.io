@@ -38,11 +38,6 @@ html{
     scroll-behavior: smooth;
 }
 
-/* LISTS */
-li{
-    list-style-type: disc;
-}
-
 /* text style */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em{
     font-size: 1em;

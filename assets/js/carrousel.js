@@ -1,17 +1,11 @@
 const imgContainer = document.querySelector('.img-container')
 const dot = document.querySelectorAll('.dot')
 
-function convertRemToPixels(rem) {    
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-}
-
 dot.forEach( (eachDot, i)=>{
     dot[i].addEventListener('click', ()=>{
         let position = i
-        let remValue = position * convertRemToPixels(2)
-        let containerWidth = imgContainer.offsetWidth
-        let percentageValue = (remValue / containerWidth) * 100
-        let operation = (position * - 100) - percentageValue
+
+        let operation = position * - 100
         imgContainer.style.transform = `translateX(${operation}%)`
 
         dot.forEach( (eachDot, i)=>{

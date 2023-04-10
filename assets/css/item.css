@@ -1,22 +1,24 @@
 /* CARROUSEL*/
 .carrousel{
-    width: 100%;
-
     margin: 0 auto;
-    padding: 2rem;
+    max-width: 24rem;
 
     overflow: hidden;
 }
 
 .carrousel .img-container{
+    max-height: 20rem;
+    width: auto;
+
     display: flex;
     flex-flow: row nowrap;
-
+    
     transition: 0.5s;
 }
 
 .carrousel .img{
-    margin-right: 2rem;
+    max-height: 20rem;
+    width: auto;
 }
 
 .carrousel .dots{
