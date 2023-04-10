@@ -1,3 +1,4 @@
+/* CARROUSEL*/
 .carrousel{
     width: 100%;
 
@@ -43,6 +44,21 @@
 
 .carrousel .dot.active{
     background-color: rgb(var(--secondary-color));
+}
+
+/* LINKS */
+main a{
+    color: rgb(var(--accent-color));;
+    padding: 0.1rem 0.5rem;
+    
+    border-radius: 0.25vw;
+
+    transition: 0.5s;
+}
+
+main a:hover{
+    color: rgb(var(--primary-color));;
+    background-color: rgb(var(--accent-color));
 }
 
 /* RESPONSIVE */
