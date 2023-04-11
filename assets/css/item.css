@@ -1,6 +1,7 @@
 /* CARROUSEL*/
 .carrousel{
     margin: 0 auto;
+    width: 100%;
     max-width: 24rem;
 
     overflow: hidden;
@@ -61,11 +62,4 @@ main a{
 main a:hover{
     color: rgb(var(--primary-color));;
     background-color: rgb(var(--accent-color));
-}
-
-/* RESPONSIVE */
-@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
-    .carrousel{
-        width: 75%;
-    }
 }
