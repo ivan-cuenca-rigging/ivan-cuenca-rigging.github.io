@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-11T19:11:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivan Cuenca Rigging</title><subtitle>3D rigger focused on characters and tools</subtitle><author><name>Iván Cuenca Ruiz</name></author><entry><title type="html">Bifrost pose reader</title><link href="http://localhost:4000/2023/03/28/bifrostPoseReader.html" rel="alternate" type="text/html" title="Bifrost pose reader" /><published>2023-03-28T00:00:00+02:00</published><updated>2023-03-28T00:00:00+02:00</updated><id>http://localhost:4000/2023/03/28/bifrostPoseReader</id><content type="html" xml:base="http://localhost:4000/2023/03/28/bifrostPoseReader.html"><![CDATA[<p><img src="\assets\images\posts\bifrostPoseReader\thumbnail.gif" alt="barycentric gif" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T00:10:17+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivan Cuenca Rigging</title><subtitle>3D rigger focused on characters and tools</subtitle><author><name>Iván Cuenca Ruiz</name></author><entry><title type="html">Bifrost pose reader</title><link href="http://localhost:4000/2023/04/12/bifrostPoseReader.html" rel="alternate" type="text/html" title="Bifrost pose reader" /><published>2023-04-12T00:00:00+02:00</published><updated>2023-04-12T00:00:00+02:00</updated><id>http://localhost:4000/2023/04/12/bifrostPoseReader</id><content type="html" xml:base="http://localhost:4000/2023/04/12/bifrostPoseReader.html"><![CDATA[<p><img src="\assets\images\posts\bifrostPoseReader\thumbnail.gif" alt="barycentric gif" /></p>
 
 <p><br /></p>
 
-<h1 id="teorema-del-barycentro">Teorema del barycentro</h1>
-<p>El Teorema del Barycentro es una fórmula matemática que relaciona los segmentos en un triángulo con su barycentro, punto de intersección de las medianas del triángulo.</p>
-
-<p><br /></p>
+<h1 id="barycentric-theorem">Barycentric theorem</h1>
+<p>The Barycentric Theorem is a mathematical formula that relates the segments in a triangle with its barycenter, the point of intersection of the medians of the triangle.
+<br /></p>
 
 <p><em>IMAGEN ABCP</em></p>
 
@@ -13,8 +12,8 @@
 
 <h1 id="inputs">INPUTS</h1>
 <ul>
-  <li>Geometría <strong>triangulada</strong>.</li>
-  <li>Driver: Nodo transform / locator.</li>
+  <li>Geometry <strong>triangulated</strong>.</li>
+  <li>Driver: Node transform / locator.</li>
 </ul>
 
 <p><br /></p>
@@ -22,25 +21,96 @@
 <h1 id="pasos">PASOS</h1>
 <ol>
   <li>
-    <p>Encontrar el punto proyectado (<strong>P</strong>) sobre la geometría utilizando el vector dirección del driver.</p>
+    <p>Find the projected point (<strong>P</strong>) on the geometry using the direction vector of the driver.</p>
 
     <p><img src="/assets/images/posts/bifrostPoseReader/raycast_graph.png" alt="raycast bifrost graph" /></p>
 
-    <p>Lo primero de todo es buscar la dirección en la que debemos proyectar el punto sobre la geometría, utilizaremos el nodo <strong>rotate_by_quaternion</strong> al cual le vamos a pasar como input el quaternion de nuestro driver y el vector en el que queremos proyectar (+X por ahora).</p>
+    <p>The first thing is to find the direction in which we must project the point onto the geometry. We will use the <strong>rotate_by_quaternion</strong> node and pass the quaternion of our driver and the vector onto which we want to project (1, 0, 0) as input.</p>
 
-    <p>Una vez tenemos nuestra direction utilizaremos el nodo <strong>get_raycast_locations</strong> para proyectar la dirección sobre la geometría, es importante desactivar el <em>use cutoff distance</em>.</p>
+    <p>Once we have our vector, we will use the <strong>get_raycast_locations</strong> node to project the direction onto the geometry. It is important to disable the use cutoff distance option.</p>
 
-    <p>Debemos de tener en cuenta que este nodo necesita arrays como inputs, por lo que utilizaremos el nodo build_array para pasarle estos datos.</p>
+    <p>We must take into account that this node requires arrays as inputs, so we will use the build_array node to pass the data to it.</p>
 
-    <p>Una vez tenemos nuestro punto proyectado <strong>P</strong>, necesitamos poder acceder a su posición, para ello existe el nodo <strong>sample_property</strong>, al cual le debemos de pasar de nuevo la geoemtría y los locations como inputs.</p>
+    <p>Once we have our projected point <strong>P</strong>, we need to be able to access its position. For this, we can use the sample_property node, passing the geometry and the locations as inputs.</p>
 
     <p><br /></p>
   </li>
-  <li>Buscar la cara en la que se encuentra el punto <strong>P</strong>.</li>
-  <li>Extraer los vértices de la cara en la que nos encontramos <strong>ABC</strong>.</li>
-  <li>Calcular el area de <strong>ABC</strong>.</li>
-  <li>Calcular el area de <strong>PA</strong>.</li>
-  <li>Calcular el area de <strong>PB</strong>.</li>
-  <li>Calcular el area de <strong>PC</strong>.</li>
-  <li>Construir el output.</li>
-</ol>]]></content><author><name>Iván Cuenca Ruiz</name></author><summary type="html"><![CDATA[Start using Bifrost, how to create a pose reader applying the barycentric theorem.]]></summary></entry></feed>
+  <li>
+    <p>Determine the face on which point <strong>P</strong> is located</p>
+
+    <p><img src="/assets/images/posts/bifrostPoseReader/closest_face_graph.png" alt="closest face graph" /></p>
+
+    <p>To determine the closest face, we will use the <strong>get_closest_locations</strong> node, which provides information such as the closest position of a point on the geometry. Specifically, we are seeking the closest face. To extract this information, we will create a value node and set it as the value of <strong>GeoLocation</strong>.</p>
+
+    <p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node" /></p>
+
+    <p>The output is an array, so we’ll use the <strong>first_in_array</strong> node to get the first value.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>Extract the vertices of the face where we are <strong>ABC</strong>.</p>
+
+    <p>To obtain the 3 vertices that form our face, we need to use the <strong>get_mesh_structure</strong> node. This node provides valuable information as output, such as the number of vertices, number of faces, among others.</p>
+
+    <p><img src="/assets/images/posts/bifrostPoseReader/face_vertex_graph.png" alt="face vertex graph" /></p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>Calculate the area of <strong>ABC</strong>.
+ This step may seem very complex, but it is as simple as looking for the formula on the internet and applying it with bifrost nodes, our inputs are 3 points so we must do the following steps:</p>
+
+    <ul>
+      <li>Vector <strong>AB</strong> (B - A) and vector <strong>AC</strong> (C - A)</li>
+      <li>Cross product: vector that is perpendicular to the plane formed by the two previous vectors.</li>
+      <li>(√ X^2 + Y^2 + Z^2) / 2</li>
+    </ul>
+
+    <p><img src="/assets/images/posts/bifrostPoseReader/area_graph.png" alt="area graph" /></p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>Calculate the area of <strong>PA</strong>.</p>
+  </li>
+</ol>
+
+<p>Repeat step <strong>4</strong> but with the points <strong>BCP</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;br&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Calculate the area of <strong>PB</strong>.</p>
+
+    <p>Repeat step <strong>4</strong> but with the points <strong>ACP</strong></p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>Calculate the area of <strong>PC</strong>.</p>
+
+    <p>Repeat step <strong>4</strong> but with the points <strong>ABP</strong></p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>build the output.</p>
+
+    <p>As output we are going to need an array with a value for each vertex, if that vertex is part of the face in which we find ourselves it will have a value, otherwise that vertex will be set to 0. At most we can have 3 vertices with values and always the sum should give 1.</p>
+
+    <p><img src="/assets/images/posts/bifrostPoseReader/build_output.png" alt="build_output" /></p>
+
+    <p>For this graph we are going to need the number of vertices of our geometry <em>max_iterations</em>, we will create an empty array with the node <strong>for_each</strong> with the same length as <em>max_iterations</em>.</p>
+
+    <p>Now we need to modify this array, we are going to use the weights that we have obtained (<em>output1</em>, <em>output2</em> and <em>output3</em>) from all the operations and through the <strong>set_in_array</strong> node we are going to set the vertices that must have these information (* value<em>, *value1</em> and <em>value2</em>).</p>
+
+    <hr />
+
+    <p>Finally we already have as output the weights that each of our vertices will have and since they are values between 0 and 1 we can use them to trigger our blendshapes.</p>
+
+    <p><br /></p>
+  </li>
+</ol>]]></content><author><name>Iván Cuenca Ruiz</name></author><summary type="html"><![CDATA[How to create a pose reader applying the barycentric theorem.]]></summary></entry></feed>

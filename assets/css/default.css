@@ -267,6 +267,20 @@ main li{
     margin-left: 2rem;
 }
 
+main h1{
+    text-align: center;
+}
+
+main img{
+    margin: 1rem auto;
+}
+
+main .date{
+    margin: 2rem 0;
+    
+    text-align: right;
+}
+
 main .download-button{
     width: 15rem;
 
@@ -288,10 +302,18 @@ main .download-button:hover{
     box-shadow: 0 0.5rem 1rem rgba(var(--secondary-color), 0.2);
 }
 
-main .date{
-    margin: 2rem 0;
+main .download-button a{
+    color: rgb(var(--accent-color));;
+    padding: 0.1rem 0.5rem;
     
-    text-align: right;
+    border-radius: 0.25vw;
+
+    transition: 0.5s;
+}
+
+main .download-button a:hover{
+    color: rgb(var(--primary-color));;
+    background-color: rgb(var(--accent-color));
 }
 
 /* FOOTER */
@@ -364,5 +386,21 @@ footer p{
 
     header .li{
         margin: 0 0.5rem;
+    }
+
+    /* MAIN */
+    .img-big{
+        width: 50%;
+        height: auto;
+    }
+
+    .img-medium{
+        width: 50%;
+        height: auto;
+    }
+
+    .img-small{
+        width: 33%;
+        height: auto;
     }
 }

@@ -50,6 +50,8 @@
     margin: auto 0;
     
     padding: 1rem;
+
+    text-align: center;
 }
 
 /* RESPONSIVE */
@@ -59,7 +61,12 @@
         max-height: 15rem;
         max-width: 100%;
     }
+    
     .post-thumbnail{
         max-width: 17.5rem;
+    }
+
+    .post-excerpt{
+        text-align: left;
     }
 }
