@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T22:20:03+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivan Cuenca Rigging</title><subtitle>3D rigger focused on characters and tools</subtitle><author><name>Iván Cuenca Ruiz</name></author><entry><title type="html">Bifrost pose reader</title><link href="http://localhost:4000/2023/04/12/bifrostPoseReader.html" rel="alternate" type="text/html" title="Bifrost pose reader" /><published>2023-04-12T00:00:00+02:00</published><updated>2023-04-12T00:00:00+02:00</updated><id>http://localhost:4000/2023/04/12/bifrostPoseReader</id><content type="html" xml:base="http://localhost:4000/2023/04/12/bifrostPoseReader.html"><![CDATA[<p><img src="\assets\images\posts\bifrostPoseReader\thumbnail.gif" alt="barycentric gif" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T23:01:19+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivan Cuenca Rigging</title><subtitle>3D rigger focused on characters and tools</subtitle><author><name>Iván Cuenca Ruiz</name></author><entry><title type="html">Bifrost pose reader</title><link href="http://localhost:4000/2023/04/12/bifrostPoseReader.html" rel="alternate" type="text/html" title="Bifrost pose reader" /><published>2023-04-12T00:00:00+02:00</published><updated>2023-04-12T00:00:00+02:00</updated><id>http://localhost:4000/2023/04/12/bifrostPoseReader</id><content type="html" xml:base="http://localhost:4000/2023/04/12/bifrostPoseReader.html"><![CDATA[<p><img src="\assets\images\posts\bifrostPoseReader\thumbnail.gif" alt="barycentric gif" /></p>
 
 <p><br /></p>
 
 <h1 id="barycentric-coordinate-system">Barycentric coordinate system</h1>
-<p>The barycentric coordinates are a way of expressing the location of a point within a triangle using proportions based on areas. It’s like dividing the triangle into smaller areas and using those areas to describe where the point is in relation to them. This is known as areal coordinates and is a simple way to understand how a point is positioned within a triangle using only area ratios.</p>
+<p>The barycentric coordinates are a way of expressing the location of a point within a triangle using proportions based on areas. It’s like dividing the triangle into smaller areas and using those areas to describe where the point is in relation to them. This is known as areal coordinates and it’s a simple way to understand how a point is positioned within a triangle using only area ratios.</p>
 
 <p>So once we have 3 points (<strong>ABC</strong>) and a point (<strong>P</strong>) we can calculate the area of <strong>ABC</strong>, <strong>PAB</strong>, <strong>PBC</strong> and <strong>PCA</strong>.</p>
 
@@ -42,13 +42,11 @@
 
 <h2 id="step-1">Find the projected point (P) on the geometry using a vector</h2>
 
-<p>Para encontrar el punto P vamos a necesitar nuestro driver, el cual se encuentra en el centro de la geometría y un vector dirección, este vector se lo podemos pasar como value (1, 0, 0) o tener un input en nuestro bifrost node.</p>
+<p>In order to find point <strong>P</strong>, we’ll need our driver, which is placed in the geometry’s center and a direction vector. This vector can be passed as value (1, 0, 0) if we want to use the X axis or we can have an input in our bifrost node so we can decide which axis we want to use.</p>
 
-<p>Este vector se actualizará cada vez que rotemos nuestro driver.</p>
+<p><img class="img-medium" src="/assets/images/posts/bifrostPoseReader/vector.gif" alt="vector gif" /></p>
 
-<!-- <img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node"> -->
-
-<p>Para proyectar <strong>P</strong> sobre la geometría vamos a utilizar el nodo <strong>get_raycast_locations</strong>, este nodo necesita que le pasemos los inputs como listas, por lo que utilizaremos <strong>build_array</strong> para convertir nuestros datos en listas.</p>
+<p>To project <strong>p</strong> onto the geometry, we’ll use the node <strong>get_raycast_locations</strong>. This node needs to be given the inputs as lists. Therefore, we’ll use <strong>build_array</strong> to turn our data into lists.</p>
 
 <ul>
   <li>mesh → “get_raycast_locations.geometry”</li>
@@ -56,7 +54,7 @@
   <li>vector dirección → “get_raycast_locations.directions”</li>
 </ul>
 
-<p>Una vez tenemos nuestro <strong>get_raycast_locations</strong> funcionando, necesitamos acceder al punto <strong>P</strong> para ello utilizamos el nodo <strong>sample_property</strong>, el sample_data es el output que estamos buscando.</p>
+<p>Once our <strong>get_raycast_locations</strong> is working, we’ll need to access the point <strong>p</strong>. To do this, we must use the node <strong>sample_property</strong>. The sample_data is the output we’re looking for.</p>
 <ul>
   <li>mesh → “sample_property.geometry”</li>
   <li>“get_raycast_locations.locations” → “sample_property.locations”</li>
@@ -68,7 +66,7 @@
 
 <h2 id="step-2">Determine the face on which point P is located</h2>
 
-<p>To determine the closest face, we’ll use the <strong>get_closest_locations</strong> node, this node provides us valuable information such us the closest vertex or the closest face, to extract this information, we’ll create a <strong>value</strong> node and set its type as <strong>GeoLocation</strong>.</p>
+<p>To determine the closest face, we’ll use the <strong>get_closest_locations</strong> node. This node provides us valuable information, such as the closest vertex or the closest face. To extract this information, we’ll create a <strong>value</strong> node and set its type as <strong>GeoLocation</strong>.</p>
 
 <p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node" /></p>
 
@@ -88,7 +86,7 @@
 
 <h2 id="step-4">Calculate the areas of ABC, PBC, PCA, PAB</h2>
 
-<p>This step may seem very complex, but it is as simple as looking for the formula on the internet and applying it with bifrost nodes, the area formula for a triangle is the following:</p>
+<p>This step may seem very complex, but it’ss as simple as looking for the formula on the internet and applying it with bifrost nodes. The area formula for a triangle is the following:</p>
 
 <p class="frame"> | (B - A) x (C - A) | / 2 </p>
 
@@ -103,14 +101,14 @@
 <p>As we said at the beginning of the post, once we have all the areas, the only thing we need to do is to divide the areas by the area of <strong>ABC</strong>.
 So, for example, the weight of <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>)</p>
 
-<p>Apart from that, in the image you can see the way I find to create an empty array and fill it only with the values of the vertex of the face we are on.</p>
+<p>Apart from that, in the image you can see the way I’ve found to create an empty array and fill it only with the values of the vertex of the face we are on.</p>
 
 <p><img src="/assets/images/posts/bifrostPoseReader/output.png" alt="output" /></p>
 
 <p><br /></p>
 
-<p>The sum of all our weights must be equal to 1 and since they are values between 0 and 1 we can use them to trigger our blendshapes directly.</p>
+<p>The sum of all our weights must be equal to 1 and, since they are values between 0 and 1, we can use them to trigger our blendshapes directly.</p>
 
 <p><br /></p>
 
-<p>I am providing the example scene for download, you can find all the weights connected in the driver, so if you rotate the locator you will see the output.</p>]]></content><author><name>Iván Cuenca Ruiz</name></author><summary type="html"><![CDATA[How to create a pose reader applying the barycentric coordinate system.]]></summary></entry></feed>
+<p>I am providing the example scene for download, you can find all the weights connected in the driver, so if you rotate the locator, you’ll see the output.</p>]]></content><author><name>Iván Cuenca Ruiz</name></author><summary type="html"><![CDATA[How to create a pose reader applying the barycentric coordinate system.]]></summary></entry></feed>
