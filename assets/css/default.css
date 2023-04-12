@@ -275,6 +275,13 @@ main img{
     margin: 1rem auto;
 }
 
+main .frame{
+    background-color: rgba(var(--secondary-color), 0.2);
+    border: 0.1rem solid rgb(var(--secondary-color));
+    border-radius: 0.25rem;
+    margin: auto;
+    padding: 0.25rem 0.5rem;
+}
 main .date{
     margin: 2rem 0;
     

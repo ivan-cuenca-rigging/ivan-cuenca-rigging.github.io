@@ -78,114 +78,118 @@
 
 <p><br /></p>
 
-<h1 id="barycentric-theorem">Barycentric theorem</h1>
-<p>The Barycentric Theorem is a mathematical formula that relates the segments in a triangle with its barycenter, the point of intersection of the medians of the triangle.
-<br /></p>
+<h1 id="barycentric-coordinate-system">Barycentric coordinate system</h1>
+<p>The barycentric coordinates are a way of expressing the location of a point within a triangle using proportions based on areas. It’s like dividing the triangle into smaller areas and using those areas to describe where the point is in relation to them. This is known as areal coordinates and is a simple way to understand how a point is positioned within a triangle using only area ratios.</p>
+
+<p>So once we have 3 points (<strong>ABC</strong>) and a point (<strong>P</strong>) we can calculate the area of <strong>ABC</strong>, <strong>PAB</strong>, <strong>PBC</strong> and <strong>PCA</strong>.</p>
+
+<p>Once you have the area of each triangle, you can then use these values to determine the barycentric coordinates of <strong>P</strong>.</p>
+
+<ul>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>)</li>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>B</strong> = Area(<strong>PCA</strong>) / Area(<strong>ABC</strong>)</li>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>C</strong> = Area(<strong>PAB</strong>) / Area(<strong>ABC</strong>)</li>
+</ul>
+
+<p><br /></p>
 
 <p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/ABCP.png" alt="triangles ABCP" /></p>
 
 <p><br /></p>
 
-<h1 id="inputs">INPUTS</h1>
+<h1 id="ingredients">INGREDIENTS</h1>
 <ul>
-  <li>Geometry <strong>triangulated</strong>.</li>
-  <li>Driver: Node transform / locator.</li>
+  <li>Geometry <strong>triangulated</strong></li>
+  <li>Driver: transform / locator</li>
 </ul>
 
 <p><br /></p>
 
 <h1 id="steps">STEPS</h1>
 <ol>
-  <li>
-    <p>Find the projected point (<strong>P</strong>) on the geometry using the direction vector of the driver.</p>
-
-    <p><img src="/assets/images/posts/bifrostPoseReader/raycast_graph.png" alt="raycast bifrost graph" /></p>
-
-    <p>The first thing is to find the direction in which we must project the point onto the geometry. We will use the <strong>rotate_by_quaternion</strong> node and pass the quaternion of our driver and the vector onto which we want to project (1, 0, 0) as input.</p>
-
-    <p>Once we have our vector, we will use the <strong>get_raycast_locations</strong> node to project the direction onto the geometry. It is important to disable the use cutoff distance option.</p>
-
-    <p>We must take into account that this node requires arrays as inputs, so we will use the build_array node to pass the data to it.</p>
-
-    <p>Once we have our projected point <strong>P</strong>, we need to be able to access its position. For this, we can use the sample_property node, passing the geometry and the locations as inputs.</p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Determine the face on which point <strong>P</strong> is located</p>
-
-    <p><img src="/assets/images/posts/bifrostPoseReader/closest_face_graph.png" alt="closest face graph" /></p>
-
-    <p>To determine the closest face, we will use the <strong>get_closest_locations</strong> node, which provides information such as the closest position of a point on the geometry. Specifically, we are seeking the closest face. To extract this information, we will create a value node and set it as the value of <strong>GeoLocation</strong>.</p>
-
-    <p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node" /></p>
-
-    <p>The output is an array, so we’ll use the <strong>first_in_array</strong> node to get the first value.</p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Extract the vertices of the face where we are <strong>ABC</strong>.</p>
-
-    <p>To obtain the 3 vertices that form our face, we need to use the <strong>get_mesh_structure</strong> node. This node provides valuable information as output, such as the number of vertices, number of faces, among others.</p>
-
-    <p><img src="/assets/images/posts/bifrostPoseReader/face_vertex_graph.png" alt="face vertex graph" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Calculate the area of <strong>ABC</strong>.
- This step may seem very complex, but it is as simple as looking for the formula on the internet and applying it with bifrost nodes, our inputs are 3 points so we must do the following steps:</p>
-
-    <ul>
-      <li>Vector <strong>AB</strong> (B - A) and vector <strong>AC</strong> (C - A)</li>
-      <li>Cross product: vector that is perpendicular to the plane formed by the two previous vectors.</li>
-      <li>(√ X^2 + Y^2 + Z^2) / 2</li>
-    </ul>
-
-    <p><img src="/assets/images/posts/bifrostPoseReader/area_graph.png" alt="area graph" /></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Calculate the area of <strong>PA</strong>.</p>
-
-    <p>Repeat step <strong>4</strong> but with the points <strong>BCP</strong></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Calculate the area of <strong>PB</strong>.</p>
-
-    <p>Repeat step <strong>4</strong> but with the points <strong>ACP</strong></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>Calculate the area of <strong>PC</strong>.</p>
-
-    <p>Repeat step <strong>4</strong> but with the points <strong>ABP</strong></p>
-
-    <p><br /></p>
-  </li>
-  <li>
-    <p>build the output.</p>
-
-    <p>As output we are going to need an array with a value for each vertex, if that vertex is part of the face in which we find ourselves it will have a value, otherwise that vertex will be set to 0. At most we can have 3 vertices with values and always the sum should give 1.</p>
-
-    <p><img src="/assets/images/posts/bifrostPoseReader/build_output.png" alt="build_output" /></p>
-
-    <p>For this graph we are going to need the number of vertices of our geometry <em>max_iterations</em>, we will create an empty array with the node <strong>for_each</strong> with the same length as <em>max_iterations</em>.</p>
-
-    <p>Now we need to modify this array, we are going to use the weights that we have obtained (<em>output1</em>, <em>output2</em> and <em>output3</em>) from all the operations and through the <strong>set_in_array</strong> node we are going to set the vertices that must have these information (* value<em>, *value1</em> and <em>value2</em>).</p>
-
-    <hr />
-
-    <p>Finally we already have as output the weights that each of our vertices will have and since they are values between 0 and 1 we can use them to trigger our blendshapes.</p>
-
-    <p><br /></p>
-  </li>
+  <li><a href="#step-1">Find the projected point (<strong>P</strong>) on the geometry using a vector</a></li>
+  <li><a href="#step-2">Determine the face on which point <strong>P</strong> is located</a></li>
+  <li><a href="#step-3">Extract the vertices of the face where we are <strong>ABC</strong></a></li>
+  <li><a href="#step-4">Calculate the areas of <strong>ABC</strong>, <strong>PBC</strong>, <strong>PCA</strong>, <strong>PAB</strong></a></li>
+  <li><a href="#step-5">Output</a></li>
 </ol>
+
+<p><br /></p>
+
+<h2 id="step-1">Find the projected point (P) on the geometry using a vector</h2>
+
+<p>Para encontrar el punto P vamos a necesitar nuestro driver, el cual se encuentra en el centro de la geometría y un vector dirección, este vector se lo podemos pasar como value (1, 0, 0) o tener un input en nuestro bifrost node.</p>
+
+<p>Este vector se actualizará cada vez que rotemos nuestro driver.</p>
+
+<!-- <img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node"> -->
+
+<p>Para proyectar <strong>P</strong> sobre la geometría vamos a utilizar el nodo <strong>get_raycast_locations</strong>, este nodo necesita que le pasemos los inputs como listas, por lo que utilizaremos <strong>build_array</strong> para convertir nuestros datos en listas.</p>
+
+<ul>
+  <li>mesh → “get_raycast_locations.geometry”</li>
+  <li>translation → “get_raycast_locations.positions”</li>
+  <li>vector dirección → “get_raycast_locations.directions”</li>
+</ul>
+
+<p>Una vez tenemos nuestro <strong>get_raycast_locations</strong> funcionando, necesitamos acceder al punto <strong>P</strong> para ello utilizamos el nodo <strong>sample_property</strong>, el sample_data es el output que estamos buscando.</p>
+<ul>
+  <li>mesh → “sample_property.geometry”</li>
+  <li>“get_raycast_locations.locations” → “sample_property.locations”</li>
+</ul>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/raycast_graph.png" alt="raycast bifrost graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-2">Determine the face on which point P is located</h2>
+
+<p>To determine the closest face, we’ll use the <strong>get_closest_locations</strong> node, this node provides us valuable information such us the closest vertex or the closest face, to extract this information, we’ll create a <strong>value</strong> node and set its type as <strong>GeoLocation</strong>.</p>
+
+<p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node" /></p>
+
+<p>The output is a list, so we’ll use the <strong>first_in_array</strong> node to get the first value.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/closest_face_graph.png" alt="closest face graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-3">Extract the vertices of the face where we are ABC</h2>
+
+<p>To obtain the 3 vertices that form our face, we need to use the <strong>get_mesh_structure</strong> node.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/face_vertex_graph.png" alt="face vertex graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-4">Calculate the areas of ABC, PBC, PCA, PAB</h2>
+
+<p>This step may seem very complex, but it is as simple as looking for the formula on the internet and applying it with bifrost nodes, the area formula for a triangle is the following:</p>
+
+<p class="frame"> | (B - A) x (C - A) | / 2 </p>
+
+<p>We need to calculate the area of <strong>ABC</strong>, <strong>PBC</strong>, <strong>PCA</strong>, <strong>PAB</strong></p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/area_graph.png" alt="area graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-5">Output</h2>
+
+<p>As we said at the beginning of the post, once we have all the areas, the only thing we need to do is to divide the areas by the area of <strong>ABC</strong>.
+So, for example, the weight of <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>)</p>
+
+<p>Apart from that, in the image you can see the way I find to create an empty array and fill it only with the values of the vertex of the face we are on.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/output.png" alt="output" /></p>
+
+<p><br /></p>
+
+<p>The sum of all our weights must be equal to 1 and since they are values between 0 and 1 we can use them to trigger our blendshapes directly.</p>
+
+<p><br /></p>
+
+<p>I am providing the example scene for download, you can find all the weights connected in the driver, so if you rotate the locator you will see the output.</p>
 
 
 
