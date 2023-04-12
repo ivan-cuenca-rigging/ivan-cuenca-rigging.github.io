@@ -346,13 +346,13 @@ footer .container{
 }
 
 footer .start-button{
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
 
     position: fixed;
     bottom: 5rem;
-    right: 2.5%;
-    padding-bottom: 0.25rem;
+    right: 5%;
+    padding-bottom: 0.35rem;
 
     cursor: pointer;
 
@@ -363,6 +363,8 @@ footer .start-button{
     transition: 0.5s;
 
     display: none;
+
+    opacity: 0.5;
 }
 
 footer .start-button.active{
