@@ -83,6 +83,8 @@
 
 <p>So once we have 3 points (<strong>ABC</strong>) and a point (<strong>P</strong>) we can calculate the area of <strong>ABC</strong>, <strong>PAB</strong>, <strong>PBC</strong> and <strong>PCA</strong>.</p>
 
+<p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/ABCP.png" alt="triangles ABCP" /></p>
+
 <p>Once you have the area of each triangle, you can then use these values to determine the barycentric coordinates of <strong>P</strong>.</p>
 
 <ul>
@@ -93,11 +95,7 @@
 
 <p><br /></p>
 
-<p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/ABCP.png" alt="triangles ABCP" /></p>
-
-<p><br /></p>
-
-<h1 id="ingredients">INGREDIENTS</h1>
+<h1 id="inputs">INPUTS</h1>
 <ul>
   <li>Geometry <strong>triangulated</strong></li>
   <li>Driver: transform / locator</li>
@@ -175,7 +173,7 @@
 <h2 id="step-5">Output</h2>
 
 <p>As we said at the beginning of the post, once we have all the areas, the only thing we need to do is to divide the areas by the area of <strong>ABC</strong>.
-So, for example, the weight of <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>)</p>
+So, for example, the weight of <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>).</p>
 
 <p>Apart from that, in the image you can see the way I’ve found to create an empty array and fill it only with the values of the vertex of the face we are on.</p>
 
