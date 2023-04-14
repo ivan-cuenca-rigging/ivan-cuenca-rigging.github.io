@@ -10,12 +10,51 @@
 <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg">
 
 <meta name="description" content="3D rigger focused on characters and tools">
-
 <meta name="keywords" content="ivan cuenca ruiz, ivan cuenca, ivan-cuenca, rigging, Python programming, 3D animation, portfolio, artist, modeling">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCFB4JK7CS"></script>
+<script>
+    // https://developers.google.com/tag-manager/devguide
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+    dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+
+    // defines window.localstorage key
+    const GA_LOCAL_STORAGE_KEY = 'ga:clientId'
+
+    // checks if localstorage is available
+    if (window.localStorage) {
+    // checks if user was already connected and loads client_id from localstorage
+    if (localStorage.getItem(GA_LOCAL_STORAGE_KEY)) {
+        // creates new tracker with same client_id as the last time the user visited
+        gtag('js', new Date())
+        gtag('config', 'G-KCFB4JK7CS', {
+        send_page_view: true,
+        client_storage: 'none',
+        client_id: localStorage.getItem(GA_LOCAL_STORAGE_KEY),
+        })
+    } else {
+        // creates client_id and saves it in localStorage -> currently random number better would be a uuid
+        window.localStorage.setItem(GA_LOCAL_STORAGE_KEY, uuidv4())
+        // creates new tracker with the new client_id
+        gtag('js', new Date())
+        gtag('config', 'G-KCFB4JK7CS', {
+        send_page_view: true,
+        client_storage: 'none',
+        client_id: localStorage.getItem(GA_LOCAL_STORAGE_KEY),
+        })
+    }
+    }
+</script>
+<!-- End Google Analytics -->
 
 <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
-        
+<link rel="stylesheet" type="text/css" href="/assets/css/cookies.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 <script defer src="/assets/js/header.js"></script>
@@ -102,6 +141,17 @@
         <footer>
         
             <div class="container">
+
+    <section class="cookies">
+    <h2 class="cookies-title">Cookies</h2> 
+    <p class="cookies-text">I use cookies for google analytics</p>
+    <div class="cookies-buttons">
+        <button class="cookies-button cookies-button-yes">accept</button>
+        <button class="cookies-button cookies-button-no">Deny</button>
+    </div>
+</section>
+
+
     <a href="#start">
         <svg class="start-button" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
