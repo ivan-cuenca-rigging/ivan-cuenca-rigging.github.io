@@ -18,7 +18,7 @@ cookiesDenyButton.addEventListener('click', () => {
     localStorage.setItem('cookies', 'false');
 });
 
-if (localStorage.getItem('cookies') === True) {
+if (localStorage.getItem('cookies') === true) {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
