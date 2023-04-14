@@ -3,7 +3,7 @@ const cookiesAcceptButton = document.getElementsByClassName('cookies-button-yes'
 const cookiesDenyButton = document.getElementsByClassName('cookies-button-no')[0];
 
 if (!localStorage.getItem('cookies')) {
-    cookiesFrame.classList.add('active');    
+    cookiesFrame.classList.add('active');
 }
 
 cookiesAcceptButton.addEventListener('click', () => {
@@ -17,3 +17,11 @@ cookiesDenyButton.addEventListener('click', () => {
 
     localStorage.setItem('cookies', 'false');
 });
+
+if (localStorage.getItem('cookies') === True) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCFB4JK7CS');
+    gtag('consent', 'default', {analytics_storage: "granted"});
+}
