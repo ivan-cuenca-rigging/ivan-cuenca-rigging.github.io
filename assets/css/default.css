@@ -370,7 +370,7 @@ footer .start-button.active{
 }
 
 footer .start-button:hover{
-    transform: scale(1.25);
+    transform: scale(1.1);
 }
 
 footer .social{
