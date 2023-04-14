@@ -18,10 +18,6 @@ cookiesDenyButton.addEventListener('click', () => {
     localStorage.setItem('cookies', 'false');
 });
 
-if (localStorage.getItem('cookies') === true) {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KCFB4JK7CS');
-    gtag('consent', 'default', {analytics_storage: "granted"});
+if (localStorage.getItem('cookies') === 'true') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
 }

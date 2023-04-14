@@ -20,17 +20,23 @@
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCFB4JK7CS"></script>
+
 <script>
-    gtag('config', 'G-KCFB4JK7CS')
-    gtag('consent', 'default', {ad_storage: "denied",
-                                analytics_storage: "denied",
-                                functionality_storage: "denied",
-                                personalization_storage: "denied",
-                                security_storage: "denied"})
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {ad_storage: 'denied',
+                                analytics_storage: 'denied',
+                                functionality_storage: 'denied',
+                                personalization_storage: 'denied',
+                                security_storage: 'denied'});
+    gtag('js', new Date());
+    gtag('config', 'G-KCFB4JK7CS');
+
 </script>
 <!-- End Google Analytics -->
-<script defer src="/assets/js/cookies.js"></script>
 
+<script defer src="/assets/js/cookies.js"></script>
 <script defer src="/assets/js/header.js"></script>
 <script defer src="/assets/js/toggle_color_theme.js"></script>
 <script defer src="/assets/js/current_page.js"></script>
@@ -153,7 +159,9 @@
 
     <section class="cookies">
     <h2 class="cookies-title">Cookies</h2> 
-    <p class="cookies-text">I use cookies for google analytics</p>
+    <p class="cookies-text">
+        I use Google Analytics to collect anonymous data on website interactions.<br>
+        This helps me to identify popular content and create more of what you like.</p>
     <div class="cookies-buttons">
         <button class="cookies-button cookies-button-yes">accept</button>
         <button class="cookies-button cookies-button-no">Deny</button>
