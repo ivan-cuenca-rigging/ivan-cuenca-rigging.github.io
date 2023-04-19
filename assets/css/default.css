@@ -21,11 +21,22 @@
 /* HIGH CONTRAST */
 @media (prefers-contrast:high){
     :root{
-    --primary-color: black;
-    --secondary-color: white;
+        --primary-color: black;
+        --secondary-color: white;
     }
 }
 
+/* COLOR SCHEME DARK */
+@media (prefers-color-scheme: dark) {
+    :root{
+        --white-color: 40, 40, 40;
+        --primary-color: 40, 40, 40;
+        
+        --black-color: 240, 240, 240;
+        --secondary-color: 240, 240, 240;
+    }
+  }
+  
 /* SELECTION HIGHLIGHT */
 ::selection{
     background-color: rgb(var(--secondary-color));
