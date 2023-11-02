@@ -110,9 +110,9 @@
 
 <p>The quadratic spline interpolation is a method used in mathematics to approximate a smooth curve or function that passes through a set of given data points.</p>
 
-<p>In our case we will have 3 shapes, the <strong>base</strong> or <strong>B</strong>, the <strong>target</strong> or <strong>T</strong> and the <strong>middle</strong> or <strong>M</strong>.</p>
+<p>In our case we will be dealing with 3 different shapes, the <strong>base</strong> or <strong>B</strong>, the <strong>target</strong> or <strong>T</strong> and the <strong>middle</strong> or <strong>M</strong>.</p>
 
-<p>The <strong>M</strong> will be calculated automatically finding the middle positions and modifying it with a matrix:</p>
+<p>The <strong>M</strong> will be calculated automatically finding the middle position and adjusting it with a matrix transformation.</p>
 
 <p><br /></p>
 
@@ -127,23 +127,23 @@
 
 <p><br /></p>
 
-<p>To work with the vertices of a geometry in Bifrost, you need to access to its points positions. For the base and the target, it’s straightforward, you can simply connect the geometry inputs directly to the <strong>get_point_position</strong> node.</p>
+<p>To manipulate the vertices of a geometry in Bifrost, you must access to their point positions. When dealing with the base and target shapes, the process is straightforward: you can directly connect the geometry inputs to the <strong>get_point_position</strong> node.</p>
 
-<p>For the middle shape as I mentioned before we are going to use this formula to get the middle points positions:</p>
+<p>To calculate the middle shape’s point positions, as mentioned earlier, we will apply the following formula:</p>
 <p class="frame"> (B + A) / 2 </p>
 
 <p><img class="img-medium" src="\assets\images\posts\bifrostNonLinearBlendshape\middle_pp.png" alt="middle points positions graph" /></p>
 
-<p>Okay, now we have the points positions for <strong>B</strong>, <strong>T</strong> and <strong>M</strong>, but if we use these 3 shapes for the quadratic spline, it will look like a normal blendshape with a linear interpolation.</p>
+<p>Now that we have obtained the point positions for <strong>B</strong>, <strong>T</strong>, and <strong>M</strong>, it’s important to note that if we use these three shapes for the quadratic spline, the result will look like a typical blendshape with linear interpolation.</p>
 
-<p>To solve this, we will use the matrix of a locator and add its position to <strong>M</strong>. It’s important to consider that if we add the locator’s matrix to all the vertices, the entire geometry will shift. To avoid this, we will identify the vertices that have been moved (delta) by using the formula (B-A). Then, we will calculate the length or magnitude of each vector, determine the maximum length among all vectors, and normalize all the vectors based on this maximum value, so the normalized lengths will be “length/max_length.”
+<p>To solve this, we will use the matrix of a locator and add its position to <strong>M</strong>. It’s important to consider that if we add the locator’s matrix to all the vertices, the entire geometry will shift. To avoid this, we will identify the vertices that have been moved (delta) by using the formula (B-A). Then, we will calculate the length of each vector, determine the maximum length among all vectors, and normalize all the vectors based on this maximum value, so the normalized lengths will be “length/max_length.”
 <img class="img-medium" src="\assets\images\posts\bifrostNonLinearBlendshape\normalized_lengths.png" alt="normalized lengths graph" /></p>
 
-<p>Now that we have the normalized lengths we need the matrix of the locator, as we want to be able to tweak the pivot I also added a inverseMatrix, to multiply the <strong>M</strong> by the matrix we need to convert the vector 3 of the <strong>M</strong> points positions to a vector 4, it is important to set the W to 1 or it won’t work, once we have the multiplication we convert it again to vector 3.</p>
+<p>Now that we have the normalized lengths, we need the matrix of the locator, as we want to be able to tweak the pivot I also added a inverseMatrix, to multiply the <strong>M</strong> by the matrix we need to convert the vector 3 of the <strong>M</strong> point positions to a vector 4, it is important to set the W to 1 or it won’t work, once we have the multiplication we convert it back again to vector 3.</p>
 
 <p><img class="img-medium" src="\assets\images\posts\bifrostNonLinearBlendshape\matrix_multiply.png" alt="matrix multiply graph" /></p>
 
-<p>Lastly, with M (mid_pp), normalized lengths (for_each), and the matrix (vector3_to_vector5), we will begin by subtracting <strong>M</strong> from the matrix. Then, we will multiply it by the normalized lengths and, finally, add <strong>M</strong> back to obtain our correct <strong>M</strong>.</p>
+<p>Lastly, with <strong>M</strong> (mid_pp), normalized lengths (for_each), and the matrix (vector3_to_vector5), we have to subtract <strong>M</strong> from the matrix. Then, we will multiply it by the normalized lengths and, finally, add <strong>M</strong> back to obtain our correct <strong>M</strong>.</p>
 
 <p><img class="img-medium" src="\assets\images\posts\bifrostNonLinearBlendshape\m_result.png" alt="correct M result graph" /></p>
 
@@ -165,9 +165,8 @@
 
 <p><img src="\assets\images\posts\bifrostNonLinearBlendshape\quadratic_spline.png" alt="quadratic spline graph" /></p>
 
-<p>As you can see in this graph you just need to follow the formula, remember that if we want to see the result we need to convert back our points positions to a geometry using the node <strong>set_point_position</strong>.</p>
-
-<p><br /></p>
+<p>As shown in this graph, you just need to follow the formula. Remember that to see the result, you need to convert your point positions back to a geometry using the <strong>set_point_position</strong> node.”
+<br /></p>
 
 <h1 id="source-links">Source links</h1>
 
