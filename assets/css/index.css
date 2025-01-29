@@ -33,21 +33,3 @@ main a{
     font-size: 1.25em;
     font-weight: bolder;
 }
-
-.author::after {
-    content: "";
-    
-    display: block;
-    
-    position: absolute;
-    
-    left: 50%;
-    bottom: -1rem;
-
-    width: 0.4rem;
-    height: 0.4rem;
-
-    border-radius: 100%;
-
-    background-color: rgb(var(--secondary-color));
-}

@@ -104,9 +104,13 @@ header .logo{
     height: 5rem;
     width: 5rem;
 
-    fill: rgb(var(--secondary-color));
+    margin: 1% auto;
+    
+    width: 4rem;
+    height: auto;
 
-    transition: 0.5s;
+    border-radius: 50%;
+    transition:0.5s;
 }
 
 header .button{
