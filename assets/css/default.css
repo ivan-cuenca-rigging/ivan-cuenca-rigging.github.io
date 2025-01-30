@@ -365,8 +365,6 @@ footer .start-button{
     cursor: pointer;
 
     fill: rgb(var(--primary-color));
-    background-color: rgb(var(--secondary-color));
-    border-radius: 50%;
 
     transition: 0.5s;
 
