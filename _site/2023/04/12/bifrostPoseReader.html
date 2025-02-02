@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    
+        <meta charset="UTF-8">
+
+<title> Ivan Cuenca Rigging </title>
+
+<link rel="icon" type="image/svg+xml" href="/assets/images/thumbnail.png">
+
+<meta name="description" content="Hi there! I'm Iván Cuenca Ruiz, a Rigging Artist who started in the 3D world back in 2016. <br> If you'd like to see my work, feel free to check out the Projects, Blog, or Resources sections. <br> Hope you enjoy!">
+<meta name="keywords" content="ivan cuenca ruiz, ivan cuenca, ivan-cuenca, rigging, Python programming, 3D animation, portfolio, artist, modeling">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/cookies.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCFB4JK7CS"></script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    gtag('consent', 'default', {ad_storage: 'denied',
+                                analytics_storage: 'denied',
+                                functionality_storage: 'denied',
+                                personalization_storage: 'denied',
+                                security_storage: 'denied'});
+    
+    gtag('js', new Date());
+
+    gtag('config', 'G-KCFB4JK7CS');
+
+    gtag('event', 'page_view', {
+    'send_to': 'G-KCFB4JK7CS',
+    'page_title': 'Bifrost pose reader',
+    'page_location': '/2023/04/12/bifrostPoseReader.html'
+    });
+
+</script>
+<!-- End Google Analytics -->
+
+<script defer src="/assets/js/cookies.js"></script>
+<script defer src="/assets/js/header.js"></script>
+<script defer src="/assets/js/toggle_color_theme.js"></script>
+<script defer src="/assets/js/current_page.js"></script>
+<script defer src="/assets/js/start_button.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    
+    </head>
+
+    <body>
+
+        <header>
+        
+            <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+<div class="container" id="start">
+    <!-- LOGO -->
+    <a href="/">
+        <img class="logo" src="./assets/images/thumbnail.png" alt="thumbnail">
+    </a>
+
+    <!-- BURGER -->
+    <button class="button">
+        <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+    </button>
+
+    <!-- NAV -->
+    <nav class="nav">
+
+        <ul class="ul">
+        
+            <li class="li"><a class="a" href="/projects"> Projects </a></li>
+        
+            <li class="li"><a class="a" href="/blog"> Blog </a></li>
+        
+            <li class="li"><a class="a" href="/resources"> Resources </a></li>
+        
+        </ul>
+
+        <!-- COLOR THEME BUTTON -->
+        <div class="color-theme-container">
+            <div class="color-theme-button"></div>
+        </div>
+
+    </nav>
+</div>
+        
+        </header>
+
+        <main>
+        
+            <h1 class="title">Bifrost pose reader</h1>
+
+<p><img src="\assets\images\posts\bifrostPoseReader\thumbnail.gif" alt="barycentric gif" /></p>
+
+<p><br /></p>
+
+<h1 id="barycentric-coordinate-system">Barycentric coordinate system</h1>
+<p>The barycentric coordinates are a way of expressing the location of a point within a triangle using proportions based on areas. It’s like dividing the triangle into smaller areas and using those areas to describe where the point is in relation to them. This is known as areal coordinates and it’s a simple way to understand how a point is positioned within a triangle using only area ratios.</p>
+
+<p>So once we have 3 points (<strong>ABC</strong>) and a point (<strong>P</strong>) we can calculate the area of <strong>ABC</strong>, <strong>PAB</strong>, <strong>PBC</strong> and <strong>PCA</strong>.</p>
+
+<p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/ABCP.png" alt="triangles ABCP" /></p>
+
+<p>Once you have the area of each triangle, you can then use these values to determine the barycentric coordinates of <strong>P</strong>.</p>
+
+<ul>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>)</li>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>B</strong> = Area(<strong>PCA</strong>) / Area(<strong>ABC</strong>)</li>
+  <li>The barycentric coordinate for point <strong>P</strong> with respect to vertex <strong>C</strong> = Area(<strong>PAB</strong>) / Area(<strong>ABC</strong>)</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="inputs">INPUTS</h1>
+<ul>
+  <li>Geometry <strong>triangulated</strong></li>
+  <li>Driver: transform / locator</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="steps">STEPS</h1>
+<ol>
+  <li><a href="#step-1">Find the projected point (<strong>P</strong>) on the geometry using a vector</a></li>
+  <li><a href="#step-2">Determine the face on which point <strong>P</strong> is located</a></li>
+  <li><a href="#step-3">Extract the vertices of the face where we are <strong>ABC</strong></a></li>
+  <li><a href="#step-4">Calculate the areas of <strong>ABC</strong>, <strong>PBC</strong>, <strong>PCA</strong>, <strong>PAB</strong></a></li>
+  <li><a href="#step-5">Output</a></li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="step-1">Find the projected point (P) on the geometry using a vector</h2>
+
+<p>In order to find point <strong>P</strong>, we’ll need our driver, which is placed in the geometry’s center and a direction vector. This vector can be passed as value (1, 0, 0) if we want to use the X axis or we can have an input in our bifrost node so we can decide which axis we want to use.</p>
+
+<p><img class="img-medium" src="/assets/images/posts/bifrostPoseReader/vector.gif" alt="vector gif" /></p>
+
+<p>To project <strong>p</strong> onto the geometry, we’ll use the node <strong>get_raycast_locations</strong>. This node needs to be given the inputs as lists. Therefore, we’ll use <strong>build_array</strong> to turn our data into lists.</p>
+
+<ul>
+  <li>mesh → “get_raycast_locations.geometry”</li>
+  <li>translation → “get_raycast_locations.positions”</li>
+  <li>vector dirección → “get_raycast_locations.directions”</li>
+</ul>
+
+<p>Once our <strong>get_raycast_locations</strong> is working, we’ll need to access the point <strong>p</strong>. To do this, we must use the node <strong>sample_property</strong>. The sample_data is the output we’re looking for.</p>
+<ul>
+  <li>mesh → “sample_property.geometry”</li>
+  <li>“get_raycast_locations.locations” → “sample_property.locations”</li>
+</ul>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/raycast_graph.png" alt="raycast bifrost graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-2">Determine the face on which point P is located</h2>
+
+<p>To determine the closest face, we’ll use the <strong>get_closest_locations</strong> node. This node provides us valuable information, such as the closest vertex or the closest face. To extract this information, we’ll create a <strong>value</strong> node and set its type as <strong>GeoLocation</strong>.</p>
+
+<p><img class="img-small" src="/assets/images/posts/bifrostPoseReader/geoLocation_value_node.png" alt="geoLocation value node" /></p>
+
+<p>The output is a list, so we’ll use the <strong>first_in_array</strong> node to get the first value.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/closest_face_graph.png" alt="closest face graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-3">Extract the vertices of the face where we are ABC</h2>
+
+<p>To obtain the 3 vertices that form our face, we need to use the <strong>get_mesh_structure</strong> node.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/face_vertex_graph.png" alt="face vertex graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-4">Calculate the areas of ABC, PBC, PCA, PAB</h2>
+
+<p>This step may seem very complex, but it’ss as simple as looking for the formula on the internet and applying it with bifrost nodes. The area formula for a triangle is the following:</p>
+
+<p class="frame"> | (B - A) x (C - A) | / 2 </p>
+
+<p>We need to calculate the area of <strong>ABC</strong>, <strong>PBC</strong>, <strong>PCA</strong>, <strong>PAB</strong></p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/area_graph.png" alt="area graph" /></p>
+
+<p><br /></p>
+
+<h2 id="step-5">Output</h2>
+
+<p>As we said at the beginning of the post, once we have all the areas, the only thing we need to do is to divide the areas by the area of <strong>ABC</strong>.
+So, for example, the weight of <strong>A</strong> = Area(<strong>PBC</strong>) / Area(<strong>ABC</strong>).</p>
+
+<p>Apart from that, in the image you can see the way I’ve found to create an empty array and fill it only with the values of the vertex of the face we are on.</p>
+
+<p><img src="/assets/images/posts/bifrostPoseReader/output.png" alt="output" /></p>
+
+<p><br /></p>
+
+<p>The sum of all our weights must be equal to 1 and, since they are values between 0 and 1, we can use them to trigger our blendshapes directly.</p>
+
+<p><br /></p>
+
+<p>I am providing the example scene for download, you can find all the weights connected in the driver, so if you rotate the locator, you’ll see the output.</p>
+
+
+
+  <a class="download-button" href="https://ivancuencarigging.gumroad.com/l/PoseReader" target="_blank">Download</a>
+
+
+<p class="date">Iván Cuenca Ruiz - 12 / 04 / 2023</p>
+
+            
+        </main>
+
+        <footer>
+        
+            <div class="container">
+
+    <section class="cookies">
+    <h2 class="cookies-title">Cookies</h2> 
+    <p class="cookies-text">
+        I use Google Analytics to collect anonymous data on website interactions.<br>
+        This helps me to identify popular content and create more of what you like.</p>
+    <div class="cookies-buttons">
+        <button class="cookies-button cookies-button-yes">accept</button>
+        <button class="cookies-button cookies-button-no">Deny</button>
+    </div>
+</section>
+
+
+    <a href="#start">
+        <!-- <svg class="start-button" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+        </svg> -->
+
+        <svg class="start-button" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7" />
+        </svg>
+
+    </a>
+
+    <div class="social">
+        
+            
+                <a href="https://www.linkedin.com/in/ivan-cuenca-ruiz/" target="_blank"> <i class="fab fa-linkedin-in icon"></i></a>
+            
+                <a href="https://github.com/ivan-cuenca-rigging/" target="_blank"> <i class="fab fa-github icon"></i></a>
+            
+                <a href="https://www.instagram.com/ivan_cuenca_rigging/" target="_blank"> <i class="fab fa-instagram icon"></i></a>
+            
+                <a href="mailto:ivan.cuenca.rigging@gmail.com" target="_blank"> <i class="far fa-envelope icon"></i></a>
+            
+
+    </div>
+
+    <p>2023 &copy; All rights reserved - Iván Cuenca Ruiz</p>
+
+</div>
+        
+        </footer>
+
+    </body>
+</html>

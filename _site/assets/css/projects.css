@@ -1,0 +1,82 @@
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.card{
+    position: relative;
+
+    width: 100%;
+    
+    padding: 0 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    transition: 0.5s;
+}
+
+.card img{
+    border-radius: 1vw;
+    object-fit: fill;
+
+    transition: 0.5s;
+}
+
+.card a{
+    text-align: center;
+
+    color: rgb(var(--secondary-color));
+}
+
+.project-name{
+    margin: 5% auto;
+    height: 3rem;
+    text-align: center;
+}
+
+.watch{
+    color: rgb(var(--white-color)) !important;
+    
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -100%);
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: 0.5s;
+}
+
+
+.card:hover .watch{
+    opacity: 1;
+}
+
+.card:hover img{
+    filter: brightness(50%);
+    transform: scale(1.01);
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .projects{
+    flex-direction: row;
+    }
+    .card{
+        max-width: 15rem;
+    }
+}
