@@ -48,39 +48,3 @@
 .carrousel .dot.active{
     background-color: rgb(var(--secondary-color));
 }
-
-/* LINKS */
-/* main .download-button{
-    width: 15rem;
-
-    border-radius: 1vw;
-
-    margin: 1rem auto;
-    
-    text-align: center;
-    font-size: 2rem;
-
-    color: rgb(var(--primary-color));
-    background-color: rgb(var(--accent-color));
-    transition: 0.5s;
-}
-
-main .download-button:hover{
-    transform: scale(1.1);
-
-    box-shadow: 0 0.5rem 1rem rgba(var(--secondary-color), 0.2);
-}
-
-main a{
-    color: rgb(var(--accent-color));;
-    padding: 0.1rem 0.5rem;
-    
-    border-radius: 0.25vw;
-
-    transition: 0.5s;
-}
-
-main a:hover{
-    color: rgb(var(--primary-color));;
-    background-color: rgb(var(--accent-color));
-} */
