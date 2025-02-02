@@ -39,7 +39,7 @@ main a{
     height: auto;
 }
 
-.demo_reel iframe {
+.demo_reel video {
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
