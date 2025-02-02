@@ -33,3 +33,16 @@ main a{
     font-size: 1.25em;
     font-weight: bolder;
 }
+
+.demo_reel {
+    display: flex;
+    justify-content: center;
+
+    width: 70%;
+    height: auto;
+}
+
+.demo_reel video {
+    width: 100%;
+    height: auto;
+}
