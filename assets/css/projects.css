@@ -33,7 +33,9 @@
 
     color: rgb(var(--secondary-color));
 }
-
+.project-info {
+    margin-bottom: 3rem;
+}
 .project-info a {
     display: block;
     text-align: center;
