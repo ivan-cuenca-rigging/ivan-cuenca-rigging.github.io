@@ -132,60 +132,133 @@
 
 <p><br /></p>
 
-<p><strong>Features:</strong></p>
+<hr />
+
+<p>Here is where I’m going to store my rigging stuff</p>
+
+<p><a href="https://github.com/ivan-cuenca-rigging/hiddenStrings">go to GitHub to read the file more comfortably</a></p>
+
+<p>If you want to support me with my open source development, you can leave a tip here.</p>
+
+<p>Thank you!</p>
+
+<p><a href="https://www.paypal.me/IvanCuencaRigging/"><img src="https://img.shields.io/badge/Donate-PayPal.Me-orange" alt="Support via PayPal" /></a></p>
+
+<hr />
+
+<h2 id="disclaimer">DISCLAIMER</h2>
+
+<p>The tool is under development.</p>
+
+<p>I have a full time job and this is a side project, I will attempt to address all issues outside work hours.</p>
+
+<hr />
+
+<h2 id="license">LICENSE</h2>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="CC BY-NC-SA 4.0" /></a></p>
+
+<p>hiddenStrings © 2023 by Iván Cuenca Ruiz is licensed under Attribution-NonCommercial-ShareAlike 4.0 International.</p>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="CC BY-NC-SA 4.0" /></a></p>
+
+<p><a href="https://github.com/ivan-cuenca-rigging/hiddenStrings/blob/main/LICENSE.md">LICENSE</a></p>
+
+<hr />
+
+<h2 id="requirements">REQUIREMENTS</h2>
+
+<p>Tested in Maya 2023 and 2025</p>
+
+<p>Python 3</p>
+
+<hr />
+
+<h2 id="installation">INSTALLATION</h2>
+
 <ol>
-  <li><strong>Custom hotkeys</strong></li>
-  <li><strong>Save/load selection across multiple maya sessions</strong></li>
-  <li><strong>Renamer</strong></li>
-  <li><strong>LocalRotationAxis display/hide (with/without hierarchy)</strong></li>
-  <li><strong>Shape manager:</strong>
-    <ul>
-      <li>Import export shapes</li>
-      <li>Change controls colors</li>
-      <li>Merge shapes</li>
-      <li>Transfer shapes</li>
-    </ul>
+  <li>
+    <p>Download the most current release or clone the repository.</p>
   </li>
-  <li><strong>Connection Menu:</strong>
-    <ul>
-      <li>Connect translate, rotate and scale</li>
-      <li>Connect offsetParentMatrix</li>
-      <li>Import/Export nodes and connections</li>
-      <li>Connection editor shortcut</li>
-    </ul>
+  <li>
+    <p>Rename main folder to <code class="language-plaintext highlighter-rouge">hiddenStrings</code></p>
   </li>
-  <li><strong>SkinClusters:</strong>
-    <ul>
-      <li>Set labels</li>
-      <li>Push joint creator</li>
-      <li>Transfer skin</li>
-      <li>Import skinCluster</li>
-      <li>Export skinsCluster</li>
-      <li>Rename all skinClusters</li>
-    </ul>
+  <li>
+    <p>Save the main folder in your maya folder:
+“C:/Users/userName/Documents/maya/scripts”</p>
   </li>
-  <li><strong>Blendshapes:</strong>
-    <ul>
-      <li>Edit blendshape and in-betweens even with direct connections</li>
-      <li>Sculp tool shortcut</li>
-      <li>TransferShape plugin</li>
-      <li>Mirror targets</li>
-      <li>Copy target connections</li>
-      <li>Copy Blendshape connections</li>
-      <li>Pose reader: Barycentric</li>
-      <li>Transfer Blendshape targets</li>
-      <li>Automatic Correctives</li>
-      <li>Import blendshapes</li>
-      <li>Export blendShapes</li>
-      <li>Rename all blendShapes</li>
-    </ul>
+  <li>
+    <p>Run this code in maya as python:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import hiddenStrings
+</code></pre></div>    </div>
+
+    <p>This import will check if there is a userSetup.py in “C:/Users/userName/Documents/maya/2023/”</p>
+
+    <p>If it exists it will edit the file and add the hiddenStrings imports.</p>
+
+    <p>If it does not exist it will create a userSetup.py with the hiddenStrings imports .</p>
   </li>
 </ol>
 
-<p><br /></p>
+<p>If you don’t want to auto create the userSetup.py or load the markingMenu, the hotkeys or the plugins you can set these
+parameters to False in the <code class="language-plaintext highlighter-rouge">config.py</code></p>
 
-<p>And much more to come, any suggestion is welcome.</p>
+<hr />
 
+<h2 id="marking-menu">Marking menu</h2>
+
+<p>Hold <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Right click</kbd> to open the marking menu</p>
+
+<p><kbd>&uarr;</kbd> Deformation</p>
+
+<p><kbd>&larr;</kbd> Connections</p>
+
+<p><kbd>&darr;</kbd> Maya windows</p>
+
+<p><kbd>&darr;</kbd> <kbd>&darr;</kbd> Tools</p>
+
+<h3 id="private-features">Private features:</h3>
+
+<p><kbd>&rarr;</kbd> Builder</p>
+
+<hr />
+
+<h2 id="hotkeys">HotKeys</h2>
+
+<h3 id="keys">Keys:</h3>
+
+<p><kbd>Alt</kbd> + <kbd>P</kbd> → Print selection</p>
+
+<h4 id="resets">Resets</h4>
+
+<p><kbd>Alt</kbd> + <kbd>Q</kbd> → Reset all</p>
+
+<p><kbd>Alt</kbd> + <kbd>W</kbd> → Reset translate</p>
+
+<p><kbd>Alt</kbd> + <kbd>E</kbd> → Reset rotate</p>
+
+<p><kbd>Alt</kbd> + <kbd>R</kbd> → Reset scale</p>
+
+<h4 id="toggles">Toggles</h4>
+
+<p><kbd>Alt</kbd> + <kbd>2</kbd> → Add to isolate</p>
+
+<p><kbd>Alt</kbd> + <kbd>3</kbd> → Toggle highlighting</p>
+
+<p><kbd>Alt</kbd> + <kbd>4</kbd> → Toggle X-Ray</p>
+
+<p><kbd>Alt</kbd> + <kbd>5</kbd> → Toggle wireframe</p>
+
+<h4 id="windows">Windows</h4>
+
+<p><kbd>N</kbd> → Node editor</p>
+
+<p><kbd>Alt</kbd> + <kbd>S</kbd> → Paint skin tool</p>
+
+<hr />
 
             
             <br>
