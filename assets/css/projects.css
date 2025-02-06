@@ -34,11 +34,18 @@
     color: rgb(var(--secondary-color));
 }
 
-.project-name{
-    margin: 5% auto;
-    height: 3rem;
+.project-info a {
+    display: block;
     text-align: center;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
+
+.title-year {
+    display: block;
+}
+
 
 .watch{
     color: rgb(var(--white-color)) !important;
