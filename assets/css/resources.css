@@ -55,8 +55,7 @@
 
 .item{
     width: 100%;
-    max-width: 17.5rem;
-    height: 30rem;
+    max-width: 15rem;
 
     margin: 0.125rem auto;
 
@@ -81,7 +80,6 @@
 
 .item-thumbnail{
     width: 100%;
-    max-height: 15rem;
 
     margin: 0;
     border-radius: 0;
@@ -94,7 +92,6 @@
 
 .item-excerpt{
     width: 100%;
-    max-height: 15rem;
 
     color: rgb(var(--secondary-color));
 
@@ -109,8 +106,10 @@
     .category-container{
         flex-direction: row;
         justify-content: flex-start;
+        max-width: 15rem;
     }
     .item{
         margin: 0.125rem;
+        padding: 0 1rem;
     }
 }

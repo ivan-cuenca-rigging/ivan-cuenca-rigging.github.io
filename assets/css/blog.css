@@ -9,7 +9,7 @@
 
 .post{
     width: 100%;
-    max-width: 17.5rem;
+    max-width: 15rem;
     height: 30rem;
 
     margin: 0.5rem;
@@ -63,7 +63,7 @@
     }
     
     .post-thumbnail{
-        max-width: 17.5rem;
+        max-width: 15rem;
     }
 
     .post-excerpt{
