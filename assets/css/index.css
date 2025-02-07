@@ -43,7 +43,8 @@ main a{
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
-    margin-bottom: 2rem;
+    
+    padding: 1rem 2rem;
 }
 
 /* RESPONSIVE */
