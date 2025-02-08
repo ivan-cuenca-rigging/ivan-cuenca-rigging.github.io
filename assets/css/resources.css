@@ -60,6 +60,8 @@
     position: relative;
     margin-bottom: 3rem;
 
+    border-radius: 1vw;
+    
     max-width: 17.5rem;
 
     display: flex;

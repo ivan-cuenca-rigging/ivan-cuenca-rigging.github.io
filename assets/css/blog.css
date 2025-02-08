@@ -17,6 +17,8 @@
     max-width: 17.5rem;
     height: 30rem;
 
+    border-radius: 1vw;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -31,7 +33,11 @@
     max-height: 15rem;
 
     margin: 0;
-    border-radius: 0;
+
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 0;
 }
 
 .post-title{
@@ -68,6 +74,11 @@
     .post-thumbnail{
         max-width: 15rem;
         height: auto;
+
+        border-top-left-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .post-excerpt{
